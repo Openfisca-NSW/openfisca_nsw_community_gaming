@@ -1,0 +1,5 @@
+description: Minimum total value of all the prizes for 1 session of the gaming activity based on percentage of gross proceeds
+reference: Community Gaming Regulation 2020
+values:
+  2019-09-01:
+    value: 0.5

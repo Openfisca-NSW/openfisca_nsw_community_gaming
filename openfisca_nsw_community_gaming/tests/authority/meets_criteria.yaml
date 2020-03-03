@@ -1,0 +1,27 @@
+- name: Organisation has applied for a one year authority
+  period: 2019-09
+  input:
+    duration_of_authority: 1
+  output:
+    fixed_component_fee_in_units: 1.0
+    processing_component_fee_in_units: 3.0
+    total_fee_in_units: 4.0
+    total_fee_in_dollars: 400
+- name: Organisation has applied for a three year authority
+  period: 2019-09
+  input:
+    duration_of_authority: 3
+  output:
+    fixed_component_fee_in_units: 3.0
+    processing_component_fee_in_units: 3.0
+    total_fee_in_units: 6.0
+    total_fee_in_dollars: 600
+- name: Organisation has applied for a five year authority
+  period: 2019-09
+  input:
+    duration_of_authority: 5
+  output:
+    fixed_component_fee_in_units: 5.0
+    processing_component_fee_in_units: 3.0
+    total_fee_in_units: 8.0
+    total_fee_in_dollars: 800

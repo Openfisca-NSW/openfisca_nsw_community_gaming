@@ -1,0 +1,20 @@
+- name: Organisation is conducting trade promotion within allowable limits, hence gaming activity is permitted
+  period: 2019-09
+  input:
+    gaming_activity_is_trade_promotion: True
+    participation_obtained_by_purchasing_goods: True
+    gaming_activity_has_business_principal_consent: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 9000
+    has_authority: False
+  output:
+    trade_promotion__game_meets_criteria: True
+- name: Organisation is conducting trade promotion exceeding prize value threshold, does not have authority, hence gaming activity is not permitted.
+  period: 2019-09
+  input:
+    gaming_activity_is_trade_promotion: True
+    participation_obtained_by_purchasing_goods: True
+    gaming_activity_has_business_principal_consent: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 11000
+    has_authority: False
+  output:
+    trade_promotion__game_meets_criteria: False

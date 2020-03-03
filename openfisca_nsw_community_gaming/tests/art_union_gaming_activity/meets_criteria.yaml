@@ -1,0 +1,66 @@
+- name: Organisation is an art-union, is conducting a gaming activity that is permitted
+  period: 2019-09
+  input:
+    is_art_union: True
+    proceeds_to_benefitting_organisation: 20000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 20000
+    total_prize_value_of_all_prizes_from_gaming_activity: 40000
+    has_authority: True
+  output:
+    art_union__game_meets_criteria: True
+- name: Organisation is not an art union, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_art_union: False
+    proceeds_to_benefitting_organisation: 20000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 20000
+    total_prize_value_of_all_prizes_from_gaming_activity: 40000
+    has_authority: True
+  output:
+    art_union__game_meets_criteria: False
+- name: Organisation is an art union, total prize value is lesser than allowable limit, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_art_union: True
+    proceeds_to_benefitting_organisation: 20000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 20000
+    total_prize_value_of_all_prizes_from_gaming_activity: 29900
+    has_authority: True
+  output:
+    art_union__game_meets_criteria: False
+- name: Organisation is an art union, but gross proceeds to benefitting organisation are less than 30%, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_art_union: True
+    proceeds_to_benefitting_organisation: 10000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 20000
+    total_prize_value_of_all_prizes_from_gaming_activity: 31000
+    has_authority: True
+  output:
+    art_union__game_meets_criteria: False
+- name: Organisation is an art union, money payable as separate prize exceeds allowable limit hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_art_union: True
+    proceeds_to_benefitting_organisation: 20000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 35000
+    total_prize_value_of_all_prizes_from_gaming_activity: 31000
+    has_authority: True
+  output:
+    art_union__game_meets_criteria: False
+- name: Organisation is an art union, person conducting gaming activity does not hold an authority to do so.
+  period: 2019-09
+  input:
+    is_art_union: True
+    proceeds_to_benefitting_organisation: 20000
+    gross_proceeds_from_gaming_activity: 40000
+    money_payable_as_separate_prize: 29000
+    total_prize_value_of_all_prizes_from_gaming_activity: 31000
+    has_authority: False
+  output:
+    art_union__game_meets_criteria: False

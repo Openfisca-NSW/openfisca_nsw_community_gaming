@@ -1,0 +1,29 @@
+description: Fee structure (in fee units) for obtaining authority
+reference: Schedule 1(1) of the Community Gaming Regulation 2020
+1:
+  fixed_component: # values in fee units
+    values:
+      2019-01-01:
+        value: 1.0
+  processing_component:
+    values:
+      2019-01-01:
+        value: 3.0
+3:
+  fixed_component: # values in fee units
+    values:
+      2019-01-01:
+        value: 3.0
+  processing_component:
+    values:
+      2019-01-01:
+        value: 3.0
+5:
+  fixed_component: # values in fee units
+    values:
+      2019-01-01:
+        value: 5.0
+  processing_component:
+    values:
+      2019-01-01:
+        value: 3.0

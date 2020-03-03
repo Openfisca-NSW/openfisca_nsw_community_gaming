@@ -1,0 +1,22 @@
+- name: Organisation meets conditions for conducting free lottery, gaming activity is permitted
+  period: 2019-09
+  input:
+    gaming_activity_is_free_lottery: True
+    gaming_activity_is_trade_promotion: False
+    gaming_activity_is_progressive_lottery: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+    participation_is_free: True
+    no_prize_consists_of_money: True
+  output:
+    free_lottery__game_meets_criteria: True
+- name: Organisation is conducting a free lottery which is also a progressive lottery, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    gaming_activity_is_trade_promotion: False
+    gaming_activity_is_progressive_lottery: True
+    gaming_activity_is_free_lottery: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+    participation_is_free: True
+    no_prize_consists_of_money: True
+  output:
+    free_lottery__game_meets_criteria: False

@@ -1,0 +1,20 @@
+- name: Organisation is a registered club, conducting a club bingo that is permitted
+  period: 2019-09
+  input:
+    is_registered_club: True
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+    ticket_cost: 0.02
+  output:
+    club_bingo__game_meets_criteria: True
+- name: Organisation is a registered club, conducting a club bingo that has ticket cost higher than allowable limit
+  period: 2019-09
+  input:
+    is_registered_club: True
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+    ticket_cost: 0.10
+  output:
+    club_bingo__game_meets_criteria: False

@@ -1,0 +1,14 @@
+description: Maximum $ cost of each ticket
+reference: Community Gaming Regulation 2020
+charity_housie:
+  values:
+    2019-09-01:
+      value: 0.40
+club_bingo:
+  values:
+    2019-09-01:
+      value: 0.05
+social_housie:
+  values:
+    2019-09-01:
+      value: 0.40

@@ -1,0 +1,5 @@
+description: Maximum total value of all the prizes for 1 session of the gaming activity based on tickets sales (Percentage)
+reference: Community Gaming Regulation 2020
+values:
+  2019-09-01:
+    value: 0.75

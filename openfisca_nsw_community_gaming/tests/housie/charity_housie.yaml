@@ -1,0 +1,13 @@
+- name: Organisation is a charity, is conducting a charity housie that is permitted
+  period: 2019-09
+  input:
+    is_charity: True
+    gross_proceeds_from_gaming_activity: 4000
+    total_expenses_for_conducting_gaming_activity: 100
+    total_prize_value_from_single_gaming_session: 4000
+    proceeds_to_benefitting_organisation: 3900
+    is_another_gaming_activity_happening: True
+    more_than_ten_tickets_sold_to_same_player: False
+    ticket_cost: 0.3
+  output:
+    charity_housie__game_meets_criteria: True

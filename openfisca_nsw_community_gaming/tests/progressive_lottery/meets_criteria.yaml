@@ -1,0 +1,16 @@
+- name: Organisation is conducting a progressive lottery that is permitted
+  period: 2019-09
+  input:
+    value_of_individual_prize: 5000
+    total_prize_value_of_all_prizes_from_gaming_activity: 28000
+    has_authority: False
+  output:
+    progressive_lottery__game_meets_criteria: True
+- name: Organisation is conducting a progressive lottery above threshold but is permitted as person conducting it has authority that is in force.
+  period: 2019-09
+  input:
+    value_of_individual_prize: 5000
+    total_prize_value_of_all_prizes_from_gaming_activity: 32000
+    has_authority: True
+  output:
+    progressive_lottery__game_meets_criteria: True

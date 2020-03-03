@@ -1,0 +1,30 @@
+- name: Organisation is conducting a promotional raffle, is permitted
+  period: 2019-09
+  input:
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    ticket_cost: 4.5
+    total_prize_value_from_single_gaming_session: 700
+    no_prize_consists_of_money: True
+    gaming_activity_session_duration: 3
+    prize_paid_between_specific_timings: False
+  output:
+    promotional_raffle__game_meets_criteria: True
+- name: Organisation is conducting a promotional raffle, not permitted as proceeds for meeting cost of prizes are less than allowable limit
+  period: 2019-09
+  input:
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 629
+    gross_proceeds_from_gaming_activity: 700
+    ticket_cost: 4.5
+    total_prize_value_from_single_gaming_session: 700
+    no_prize_consists_of_money: True
+    gaming_activity_session_duration: 3
+    prize_paid_between_specific_timings: False
+  output:
+    promotional_raffle__game_meets_criteria: False

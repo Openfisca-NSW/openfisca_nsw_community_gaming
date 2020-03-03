@@ -1,0 +1,66 @@
+- name: Organisation is a charity, is conducting a lottery that is permitted
+  period: 2019-09
+  input:
+    is_charity: True
+    is_not_for_profit: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 30000
+    proceeds_to_benefitting_organisation: 12000
+    gross_proceeds_from_gaming_activity: 30000
+    gaming_activity_is_draw_lottery: True
+  output:
+    draw_lottery__game_meets_criteria: True
+- name: Organisation is a not-for-profit, is conducting a permitted gaming activity
+  period: 2019-09
+  input:
+    is_charity: False
+    is_not_for_profit: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 30000
+    proceeds_to_benefitting_organisation: 12000
+    gross_proceeds_from_gaming_activity: 30000
+    gaming_activity_is_draw_lottery: True
+  output:
+    draw_lottery__game_meets_criteria: True
+- name: Organisation is neither a charity nor a not-for-profit, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_charity: False
+    is_not_for_profit: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 30000
+    proceeds_to_benefitting_organisation: 12000
+    gross_proceeds_from_gaming_activity: 30000
+    gaming_activity_is_draw_lottery: True
+  output:
+    draw_lottery__game_meets_criteria: False
+- name: Organisation is a charity, but total value of prizes exceed allowable limit, hence gaming activity is not permitted without authority
+  period: 2019-09
+  input:
+    is_charity: True
+    is_not_for_profit: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 35000
+    proceeds_to_benefitting_organisation: 12000
+    gross_proceeds_from_gaming_activity: 35000
+    gaming_activity_is_draw_lottery: True
+  output:
+    draw_lottery__game_meets_criteria: False
+- name: Organisation is a charity, but proceeds to benefitting organisation are less than allowable limit, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_charity: True
+    is_not_for_profit: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 30000
+    proceeds_to_benefitting_organisation: 9000
+    gross_proceeds_from_gaming_activity: 30000
+    gaming_activity_is_draw_lottery: True
+  output:
+    draw_lottery__game_meets_criteria: False
+- name: Organisation is a charity, but not conducting a draw lottery, hence gaming activity is not permitted
+  period: 2019-09
+  input:
+    is_charity: True
+    is_not_for_profit: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 30000
+    proceeds_to_benefitting_organisation: 28000
+    gross_proceeds_from_gaming_activity: 30000
+    gaming_activity_is_draw_lottery: False
+  output:
+    draw_lottery__game_meets_criteria: False
