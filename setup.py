@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="$EXT_NAME",
+    name="openfisca_nsw_community_gaming",
     version="1.3.2",
     author="OpenFisca Team",
     author_email = 'sara.falamaki@customerservice.nsw.gov.au',
@@ -16,10 +16,10 @@ setup(
     description="An OpenFisca extension that adds some variables to an already-existing tax and benefit system",
     keywords = 'benefit microsimulation social tax',
     license="http://www.fsf.org/licensing/licenses/agpl-3.0.html",
-    url = "https://github.com/Openfisca-NSW/$EXT_NAME",
+    url = "https://github.com/Openfisca-NSW/openfisca_nsw_community_gaming",
     include_package_data = True,  # Will read MANIFEST.in
     data_files = [
-        ("share/openfisca/$EXT_NAME", ["CHANGELOG.md", "LICENSE", "README.md"]),
+        ("share/openfisca/openfisca_nsw_community_gaming", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
         'OpenFisca-Core >= 25.3, < 35',
