@@ -7,7 +7,7 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw.entities import *
+from openfisca_nsw_base.entities import *
 
 # The code below is used to calculate whether an organisation is meeting the conditions for conducting a housie. A housie or bingo is defined in the Community Gaming Regulation 2020 as:
 # a) that is played by 1 or more participants using cards or a device with numbered spaces or symbols

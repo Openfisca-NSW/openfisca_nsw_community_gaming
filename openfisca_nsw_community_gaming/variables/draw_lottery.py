@@ -7,7 +7,7 @@
 # Import from openfisca-core the common Python objects used to code the legislation in OpenFisca
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
-from openfisca_nsw.entities import *
+from openfisca_nsw_base.entities import *
 
 
 # This is used to calculate whether an organisation is permitted to conduct a guessing games
