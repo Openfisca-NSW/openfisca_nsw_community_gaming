@@ -22,7 +22,6 @@ setup(
         ("share/openfisca/openfisca_nsw_community_gaming", ["CHANGELOG.md", "LICENSE", "README.md"]),
         ],
     install_requires = [
-        'OpenFisca-Core >= 25.3, < 35',
         'OpenFisca_nsw_base'
 
         ],
