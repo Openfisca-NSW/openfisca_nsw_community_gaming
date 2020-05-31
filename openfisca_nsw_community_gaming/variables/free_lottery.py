@@ -16,3 +16,11 @@ class free_lottery__game_meets_criteria(Variable):
         return (
             organisation('gaming_activity_is_free_lottery', period)
             * not_(organisation('gaming_activity_is_trade_promotion', period)) * not_(organisation('gaming_activity_is_progressive_lottery', period)) * (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) <= parameters(period).permitted_games.free_lottery.max_total_prize_value) * organisation('participation_is_free', period) * organisation('no_prize_consists_of_money', period))
+
+
+class free_lottery__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "If the free lottery is a permitted gaming activity, is an authority required to conduct it?"

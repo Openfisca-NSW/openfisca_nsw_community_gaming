@@ -28,6 +28,14 @@ class charity_housie__game_meets_criteria(Variable):
             (organisation('is_charity', period) * ((organisation('proceeds_to_benefitting_organisation', period) >= parameters(period).permitted_games.housie.min_gross_proceeds_to_benefit_org) * organisation('gross_proceeds_from_gaming_activity', period)) * (organisation('total_expenses_for_conducting_gaming_activity', period) <= parameters(period).permitted_games.housie.max_expenses.charity_housie * organisation('gross_proceeds_from_gaming_activity', period)) * (organisation('total_prize_value_from_single_gaming_session', period) <= parameters(period).permitted_games.housie.max_value_of_prize_per_session.charity_housie) * (organisation('total_prize_value_from_single_gaming_session', period) <= parameters(period).permitted_games.housie.max_value_of_prizes_per_gross_proceeds * organisation('gross_proceeds_from_gaming_activity', period)) * not_(organisation('more_than_ten_tickets_sold_to_same_player', period)) * organisation('ticket_cost', period) <= parameters(period).permitted_games.housie.max_ticket_cost.charity_housie) * organisation('is_another_gaming_activity_happening', period))
 
 
+class charity_housie__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "The eligibility conditions for organising a charity housie are being met by the organisation"
+
+
 # This is used to calculate whether the condition is being met for organising another gaming activity while one session of the charity housie is being conducted
 class condition_for_multiple_gaming_activities(Variable):
     value_type = bool
@@ -78,3 +86,11 @@ class club_bingo__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         return (
             (organisation('is_registered_club', period) * (organisation('total_prize_value_from_single_gaming_session', period) <= parameters(period).permitted_games.housie.max_value_of_prize_per_session.club_bingo) * (organisation('value_of_bonus_prize', period) <= parameters(period).permitted_games.housie.max_bonus_prize) * organisation('no_prize_consists_of_money', period) * organisation('ticket_cost', period) <= parameters(period).permitted_games.housie.max_ticket_cost.club_bingo))
+
+
+class club_bingo__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "The eligibility conditions for organising a club bingo are being met by the organisation"

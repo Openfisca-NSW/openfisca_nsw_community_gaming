@@ -23,3 +23,11 @@ class draw_lottery__game_meets_criteria(Variable):
             * (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) <= parameters(period).permitted_games.draw_lottery.max_total_value_of_all_prizes)
             * (organisation('gaming_activity_is_draw_lottery', period))
             * (organisation('proceeds_to_benefitting_organisation', period)) >= ((organisation('gross_proceeds_from_gaming_activity', period) * parameters(period).permitted_games.draw_lottery.min_gross_proceeds_percent_to_benefit_org)))
+
+
+class draw_lottery__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "If the draw lottery is a permitted gaming activity, is an authority required to conduct it?"

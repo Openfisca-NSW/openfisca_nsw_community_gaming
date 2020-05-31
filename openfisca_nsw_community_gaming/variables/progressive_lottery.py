@@ -14,16 +14,15 @@ class progressive_lottery__game_meets_criteria(Variable):
 
     def formula(organisation, period, parameters):
         return (
-            (organisation('value_of_individual_prize', period) <= parameters(period).permitted_games.progressive_lottery.max_value_of_individual_prize)
-            * organisation('condition_for_exceeding_total_prize_value', period))
+            (organisation('value_of_individual_prize', period) <= parameters(period).permitted_games.progressive_lottery.max_value_of_individual_prize))
 
 
-class condition_for_exceeding_total_prize_value(Variable):
+class progressive_lottery__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Does the person conducting the gaming activity hold an authority that is in force if they are exceeding the total value threshold of all the prizes?"
+    label = "Whether an authority is required to conduct the progressive lottery"
 
     def formula(organisation, period, parameters):
-        return select(
-            [(organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) > parameters(period).permitted_games.progressive_lottery.total_prize_value_threshold), (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) <= parameters(period).permitted_games.progressive_lottery.total_prize_value_threshold)], [organisation('has_authority', period), True])
+        return (
+            (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) > parameters(period).permitted_games.progressive_lottery.total_prize_value_threshold))
