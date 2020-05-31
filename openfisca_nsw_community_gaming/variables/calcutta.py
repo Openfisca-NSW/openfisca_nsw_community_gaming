@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import *
 # This is used to calculate whether an organisation is eligible to conduct a progressive lottery
 
 
-class calcutta_game_meets_criteria(Variable):
+class calcutta__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
@@ -34,7 +34,7 @@ class calcutta__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "If the free lottery is a permitted gaming activity, is an authority required to conduct it?"
+    label = "If the calcutta is a permitted gaming activity, is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
         return (

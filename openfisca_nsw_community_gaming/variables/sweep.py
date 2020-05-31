@@ -34,7 +34,7 @@ class sweep__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "If the free lottery is a permitted gaming activity, is an authority required to conduct it?"
+    label = "If the sweep is a permitted gaming activity, is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
         return (
@@ -60,7 +60,7 @@ class distribution_of_gross_proceeds(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "If a sweep or calcutta is not conducted wholly or partly for a charity, non-profit, political party, trade union, registered club, racing club, greyhound racing club or harness racing club, will the gross proceeds be distributed to holders of the rights in respect of the succesful participants?"
+    label = "If the gaming activity is not conducted wholly or partly for a charity, non-profit, political party, trade union, registered club, racing club, greyhound racing club or harness racing club, will the gross proceeds be distributed to holders of the rights in respect of the succesful participants?"
     reference = "If a sweep or calcutta is not conducted wholly or partly for or on behalf of an organisation referred to in subclause (2), the gross proceeds are distributed to the holders of the rights in respect of the successful participants in the event to which the calcutta or sweep relates."
 
 
@@ -68,7 +68,7 @@ class reasonable_amount_to_benefitting_org(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Will a resonable amount of the gross proceeds be paid to the benefitting organisation (which will be agreed in writing before the sweep is conducted)?"
+    label = "Will a resonable amount of the gross proceeds be paid to the benefitting organisation (which will be agreed in writing before the gaming activity is conducted)?"
     reference = "If a sweep or calcutta is conducted wholly or partly for or on behalf of an organisation referred to in subclause (2)(a) a reasonable amount of the gross proceeds is paid to the organisation, and (b) the amount is agreed in writing before the sweep or calcutta is conducted."
 
 
