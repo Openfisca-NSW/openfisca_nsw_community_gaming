@@ -21,7 +21,7 @@ class progressive_lottery__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    default_value = false
+    default_value = False
     label = "If the progressive lottery is a permitted gaming activity, is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
