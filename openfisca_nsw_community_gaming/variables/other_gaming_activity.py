@@ -22,3 +22,11 @@ class housie_lottery_sweep_or_other(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "Whether this gaming activity is an art union gaming activity, housie, lottery, sweep, calcutta or other gaming activity of a similar kind?"
+
+
+class other_gaming_activity__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "If the other gaming activity is a permitted gaming activity, is an authority required to conduct it?"

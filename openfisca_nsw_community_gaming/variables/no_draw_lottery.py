@@ -23,3 +23,11 @@ class no_draw_lottery__game_meets_criteria(Variable):
             * (organisation('proceeds_to_benefitting_organisation', period) >= (organisation('gross_proceeds_from_gaming_activity', period) * parameters(period).permitted_games.no_draw_lottery.min_gross_proceeds_percent_to_benefit_org))
             * (organisation('number_of_tickets', period) <= parameters(period).permitted_games.no_draw_lottery.max_number_of_tickets)
             * (organisation('ticket_cost', period) <= parameters(period).permitted_games.no_draw_lottery.max_ticket_cost))
+
+
+class no_draw_lottery__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "If the no draw lottery is a permitted gaming activity, is an authority required to conduct it?"

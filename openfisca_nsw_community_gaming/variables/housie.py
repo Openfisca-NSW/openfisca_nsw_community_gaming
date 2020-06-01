@@ -33,7 +33,7 @@ class charity_housie__authority_required(Variable):
     entity = Organisation
     definition_period = MONTH
     default_value = False
-    label = "The eligibility conditions for organising a charity housie are being met by the organisation"
+    label = "If the charity housie is a permitted gaming activity, is an authority required to conduct it?"
 
 
 # This is used to calculate whether the condition is being met for organising another gaming activity while one session of the charity housie is being conducted
@@ -59,6 +59,14 @@ class social_housie__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         return (
             ((organisation('gaming_activity_solely_for_social_purposes', period)) * (organisation('ticket_cost', period) <= parameters(period).permitted_games.housie.max_ticket_cost.social_housie) * (organisation('net_proceeds_returned_to_participants', period) * (organisation('condition_for_no_individual_prize', period)))))
+
+
+class social_housie__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    default_value = False
+    label = "If the social housie is a permitted gaming activity, is an authority required to conduct it?"
 
 
 # This formula is used to calculate whether the conditions about individual and jackpot prizes are being met when conducting a social housie
@@ -93,4 +101,4 @@ class club_bingo__authority_required(Variable):
     entity = Organisation
     definition_period = MONTH
     default_value = False
-    label = "The eligibility conditions for organising a club bingo are being met by the organisation"
+    label = "If the club bingo is a permitted gaming activity, is an authority required to conduct it?"

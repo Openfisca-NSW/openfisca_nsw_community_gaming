@@ -9,7 +9,7 @@ class trade_promotion__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "The eligibility conditions for organising a trade promotion gaming activity are being met by the organisation"
+    label = "The eligibility conditions for organising a trade promotion are being met by the organisation"
 
     def formula(organisation, period, parameters):
         return (
@@ -18,6 +18,13 @@ class trade_promotion__game_meets_criteria(Variable):
             * (organisation('condition_for_exceeding_total_prize_value_for_trade_promotion', period))
             * (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) <= parameters(period).permitted_games.trade_promotion.max_total)
             * (organisation('total_prize_value_of_all_prizes_from_single_gaming_session', period) <= parameters(period).permitted_games.trade_promotion.max_total_single_session)))
+
+
+class trade_promotion__authority_required(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = "If the trade promotion is a permitted gaming activity, is an authority required to conduct it?"
 
 
 class gaming_activity_has_business_principal_consent(Variable):

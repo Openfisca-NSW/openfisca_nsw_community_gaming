@@ -10,7 +10,7 @@ class progressive_lottery__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "The eligibility conditions for organising progessive lotteries are being met by the organisation"
+    label = "The eligibility conditions for organising a progessive lottery are being met by the organisation"
 
     def formula(organisation, period, parameters):
         return (
@@ -21,7 +21,8 @@ class progressive_lottery__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Whether an authority is required to conduct the progressive lottery"
+    default_value = false
+    label = "If the progressive lottery is a permitted gaming activity, is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
         return (

@@ -6,7 +6,7 @@ from openfisca_nsw_base.entities import *
 # This is used to calculate whether an organisation is eligible to conduct a progressive lottery
 
 
-class sweep_game_meets_criteria(Variable):
+class sweep__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
