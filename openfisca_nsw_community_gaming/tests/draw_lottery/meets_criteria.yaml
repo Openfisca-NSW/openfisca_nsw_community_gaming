@@ -1,5 +1,5 @@
 - name: Organisation is a charity, is conducting a lottery that is permitted
-  period: 2019-09
+  period: 2020-07
   input:
     is_charity: True
     is_not_for_profit: False
@@ -9,8 +9,9 @@
     gaming_activity_is_draw_lottery: True
   output:
     draw_lottery__game_meets_criteria: True
+    draw_lottery__authority_required: False
 - name: Organisation is a not-for-profit, is conducting a permitted gaming activity
-  period: 2019-09
+  period: 2020-07
   input:
     is_charity: False
     is_not_for_profit: True
@@ -20,8 +21,9 @@
     gaming_activity_is_draw_lottery: True
   output:
     draw_lottery__game_meets_criteria: True
+    draw_lottery__authority_required: False
 - name: Organisation is neither a charity nor a not-for-profit, hence gaming activity is not permitted
-  period: 2019-09
+  period: 2020-07
   input:
     is_charity: False
     is_not_for_profit: False
@@ -31,8 +33,9 @@
     gaming_activity_is_draw_lottery: True
   output:
     draw_lottery__game_meets_criteria: False
-- name: Organisation is a charity, but total value of prizes exceed allowable limit, hence gaming activity is not permitted without authority
-  period: 2019-09
+    draw_lottery__authority_required: False
+- name: Total value of prizes exceed allowable limit, hence gaming activity is not permitted without authority
+  period: 2020-07
   input:
     is_charity: True
     is_not_for_profit: False
@@ -43,7 +46,7 @@
   output:
     draw_lottery__game_meets_criteria: False
 - name: Organisation is a charity, but proceeds to benefitting organisation are less than allowable limit, hence gaming activity is not permitted
-  period: 2019-09
+  period: 2020-07
   input:
     is_charity: True
     is_not_for_profit: False
@@ -53,8 +56,9 @@
     gaming_activity_is_draw_lottery: True
   output:
     draw_lottery__game_meets_criteria: False
+    draw_lottery__authority_required: False
 - name: Organisation is a charity, but not conducting a draw lottery, hence gaming activity is not permitted
-  period: 2019-09
+  period: 2020-07
   input:
     is_charity: True
     is_not_for_profit: False
@@ -64,3 +68,4 @@
     gaming_activity_is_draw_lottery: False
   output:
     draw_lottery__game_meets_criteria: False
+    draw_lottery__authority_required: False

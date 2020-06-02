@@ -1,6 +1,5 @@
-description: Maximum total value of all available prizes
-reference: >
-  Community Gaming Regulation 2019
+description: Max threshold of total prize value for not holding authority
+reference: Community Gaming Regulation 2020
 values:
-  2019-09-01:
+  2020-07-01:
     value: 10000
