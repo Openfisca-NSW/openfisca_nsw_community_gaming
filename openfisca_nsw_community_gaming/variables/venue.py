@@ -7,12 +7,12 @@ from openfisca_nsw_base.entities import *
 class venue_is_licensed_premises(Variable):
     value_type = bool
     entity = Organisation
-    label = u"Whether the gaming activity will be conducted on licensed premises, to which a licence under the Liquor Act 2007 relates"
+    label = u"Will the gaming activity will be conducted on a licensed premises?"
     definition_period = MONTH
 
 
 class venue_is_registered_club(Variable):
     value_type = bool
     entity = Organisation
-    label = u"Whether the gaming activity will be conducted on the premises of the registered club"
+    label = u"Will the gaming activity be conducted on the premises of a registered club?"
     definition_period = MONTH

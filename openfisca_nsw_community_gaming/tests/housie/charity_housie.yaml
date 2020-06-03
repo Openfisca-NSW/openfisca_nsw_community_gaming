@@ -2,6 +2,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
@@ -14,6 +15,20 @@
   period: 2020-07
   input:
     is_charity: False
+    gaming_activity_is_charity_housie: True
+    proceeds_to_benefitting_organisation: 3900
+    gross_proceeds_from_gaming_activity: 4000
+    total_expenses_for_conducting_gaming_activity: 100
+    total_prize_value_from_single_gaming_session: 2000
+    number_of_tickets: 40
+  output:
+    charity_housie__game_meets_criteria: False
+    charity_housie__authority_required: False
+- name: Gaming activity is not a charity housie, hence not permitted
+  period: 2020-07
+  input:
+    is_charity: True
+    gaming_activity_is_charity_housie: False
     proceeds_to_benefitting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
@@ -26,6 +41,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 499
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
@@ -38,6 +54,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 501
@@ -50,6 +67,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
@@ -62,6 +80,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 10900
     gross_proceeds_from_gaming_activity: 11000
     total_expenses_for_conducting_gaming_activity: 100
@@ -74,6 +93,7 @@
   period: 2020-07
   input:
     is_charity: True
+    gaming_activity_is_charity_housie: True
     proceeds_to_benefitting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100

@@ -1,0 +1,84 @@
+- name: Organisation is conducting a social housie that is permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: True
+    social_housie__authority_required: False
+- name: Organisation is not conducting a social housie, hence gaming activity is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: False
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False
+- name: Social housie not being conducted solely for social purposes, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: False
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False
+- name: Social housie being conducted on licensed premises, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: True
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False
+- name: Net amount invested by participants in a session of the gaming activity (minus costs of prizes and expenses) is not returned to participants, hence social housie is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: False
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False
+- name: Value of jackpot prize exceeds allowable limit, hence social housie is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 201
+    total_prize_value_from_single_gaming_session: 30
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False
+- name: Total value of all of the available prizes for 1 session of the gaming activity exceeds allowable limit, hence social housie is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_social_housie: True
+    gaming_activity_solely_for_social_purposes: True
+    venue_is_licensed_premises: False
+    net_proceeds_returned_to_participants: True
+    value_of_jackpot_prize: 100
+    total_prize_value_from_single_gaming_session: 41
+  output:
+    social_housie__game_meets_criteria: False
+    social_housie__authority_required: False

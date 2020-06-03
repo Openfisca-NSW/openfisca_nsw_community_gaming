@@ -113,10 +113,3 @@ class no_prize_consists_of_money(Variable):
     entity = Organisation
     label = u"None of the prizes consist of or include money"
     definition_period = MONTH
-
-
-class no_individual_prize(Variable):
-    value_type = int
-    entity = Organisation
-    label = u"Was there any individual prize that was won as part of the gaming activity?"
-    definition_period = MONTH
