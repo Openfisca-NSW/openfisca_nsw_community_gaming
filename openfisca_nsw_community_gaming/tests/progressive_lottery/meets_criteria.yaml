@@ -1,14 +1,36 @@
-- name: Organisation is conducting a progressive lottery with individual prize within permitted limit
+- name: Organisation is conducting a progressive lottery within allowable limits, hence gaming activity is permitted without authoritym
   period: 2020-07
   input:
-    value_of_individual_prize: 5000
+    gaming_activity_is_progressive_lottery: True
+    money_paid_as_prize: 5000
     total_prize_value_of_all_prizes_from_gaming_activity: 28000
   output:
     progressive_lottery__game_meets_criteria: True
-- name: Organisation is conducting a progressive lottery with individual prize greater than permitted limit
+    progressive_lottery__authority_required: False
+- name: Organisation is not conducting a progressive lottery, hence gaming activity is not permitted
   period: 2020-07
   input:
-    value_of_individual_prize: 8000
+    gaming_activity_is_progressive_lottery: False
+    money_paid_as_prize: 5000
     total_prize_value_of_all_prizes_from_gaming_activity: 28000
   output:
     progressive_lottery__game_meets_criteria: False
+    progressive_lottery__authority_required: False
+- name: Money paid as prize exceeds the allowable limit, hence gaming activity is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_progressive_lottery: True
+    money_paid_as_prize: 8000
+    total_prize_value_of_all_prizes_from_gaming_activity: 28000
+  output:
+    progressive_lottery__game_meets_criteria: False
+    progressive_lottery__authority_required: False
+- name: Gaming activity is permitted, but total value of all prizes exceeds threshold, hence authority is required
+  period: 2020-07
+  input:
+    gaming_activity_is_progressive_lottery: True
+    money_paid_as_prize: 5000
+    total_prize_value_of_all_prizes_from_gaming_activity: 32000
+  output:
+    progressive_lottery__game_meets_criteria: True
+    progressive_lottery__authority_required: True

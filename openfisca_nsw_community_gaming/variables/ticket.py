@@ -14,7 +14,7 @@ class ticket_cost(Variable):
 class number_of_tickets(Variable):
     value_type = int
     entity = Organisation
-    label = u"Total number of tickets produced for the specific gaming activity"
+    label = u"What is the maximum number of tickets that will be sold to a single participant?"
     definition_period = MONTH
 
 

@@ -1,10 +1,10 @@
 description: Maximum permitted value of prize per session of the housie
 reference: Community Gaming Regulation 2020
-charity_housie: #For charity housie, this condition applies if another gaming activity is being held at the same time
+charity_housie:
   values:
     2019-09-01:
-      value: 5000
-club_bingo:
+      value: 10000
+club_bingo: # max prize for 1 game of the gaming activity 
   values:
     2019-09-01:
       value: 70

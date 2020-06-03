@@ -1,20 +1,50 @@
-- name: Organisation is a registered club, conducting a club bingo that is permitted
-  period: 2019-09
+- name: Organisation is conducting a club bingo that is permitted
+  period: 2020-07
   input:
     is_registered_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
-    ticket_cost: 0.02
   output:
     club_bingo__game_meets_criteria: True
-- name: Organisation is a registered club, conducting a club bingo that has ticket cost higher than allowable limit
-  period: 2019-09
+    club_bingo__authority_required: False
+- name: Organisation is not a registered club, hence club bingo is not permitted
+  period: 2020-07
+  input:
+    is_registered_club: False
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+  output:
+    club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
+- name: Total prize value for 1 game exceeds allowable limit, hence club bingo is not permitted
+  period: 2020-07
+  input:
+    is_registered_club: True
+    total_prize_value_from_single_gaming_session: 71
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+  output:
+    club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
+- name: Total prize value for bonus prize exceeds allowable limit, hence club bingo is not permitted
+  period: 2020-07
+  input:
+    is_registered_club: True
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 71
+    no_prize_consists_of_money: True
+  output:
+    club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
+- name: Prize value consists of money, hence club bingo is not permitted
+  period: 2020-07
   input:
     is_registered_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    no_prize_consists_of_money: True
-    ticket_cost: 0.10
+    no_prize_consists_of_money: False
   output:
     club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
