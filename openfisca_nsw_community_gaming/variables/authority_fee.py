@@ -11,7 +11,7 @@ from openfisca_nsw_base.entities import *
 
 
 class total_fee_in_dollars(Variable):
-    value_type = int
+    value_type = float
     entity = Organisation
     definition_period = MONTH
     label = "The total fee in dollars for application for authority"

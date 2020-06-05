@@ -1,6 +1,5 @@
 description: Value for each fee unit for obtaining authority
 reference: Schedule 1(3) of the Community Gaming Regulation 2020
-# Dollar value of each fee unit until end of financial year 2020-21.
 values:
-  2020-07-08:
+  2020-07:
     value: 105.48
