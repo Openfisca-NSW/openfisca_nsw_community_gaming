@@ -1,0 +1,112 @@
+- name: Organisation is conducting a promotional raffle, is permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: True
+    promotional_raffle__authority_required: False
+- name: Organisation is not conducting a promotional raffle, hence is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: False
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Organisation is not a registered club, hence promotional raffle is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: False
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Promotional raffle is not conducted on the registered club premises, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: False
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Gaming activity is not organised for the purpose of attracting patronage to the club’s facilities, hence not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: False
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Proceeds used for meeting cost of prizes exceed allowable limit, hence gaming activity is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 8900
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Total prize value from single gaming session exceeds allowable limit, hence promotional raffle is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5100
+    no_prize_consists_of_money: True
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
+- name: Promotional raffle has prizes that consist of money, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_promotional_raffle: True
+    is_registered_club: True
+    venue_is_registered_club: True
+    gaming_activity_organised_for_patronage: True
+    proceeds_used_for_meeting_cost_of_prizes: 9000
+    gross_proceeds_from_gaming_activity: 10000
+    total_prize_value_from_single_gaming_session: 5000
+    no_prize_consists_of_money: False
+  output:
+    promotional_raffle__game_meets_criteria: False
+    promotional_raffle__authority_required: False
