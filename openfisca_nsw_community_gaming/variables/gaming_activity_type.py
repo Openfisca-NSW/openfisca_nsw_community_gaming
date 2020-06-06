@@ -95,6 +95,13 @@ class gaming_activity_is_calcutta(Variable):
     label = "Calcutta"
 
 
+class gaming_activity_is_other(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = "Other Gaming Activity"
+
+
 class gaming_activity_is_free_to_enter(Variable):
     value_type = bool
     entity = Organisation
