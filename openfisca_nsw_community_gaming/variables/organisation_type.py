@@ -72,3 +72,21 @@ class is_harness_racing_club(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "Gaming activity is conducted by or on behalf of a harness racing club within the meaning of the Harness Racing Act 2009"
+
+
+class is_approved_fund_raising_organisation(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = "Whether the organisation conducting the gaming activity is an approved fund raising organisation as per Part(2) - 13 ?"
+
+    def formula(organisation, period, parameters):
+        return (
+            (organisation('is_charity', period)
+            + organisation('is_not_for_profit', period)
+            + organisation('is_political_party', period)
+            + organisation('is_trade_union', period)
+            + organisation('is_registered_club', period)
+            + organisation('is_racing_club', period)
+            + organisation('is_greyhound_racing_club', period)
+            + organisation('is_harness_racing_club', period)))

@@ -1,0 +1,126 @@
+- name: Organisation is an approved fund raising organisation, conducting a calcutta that is permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: True
+    calcutta__authority_required: False
+- name: Organisation is not conducting a calcutta, hence gaming activity is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: False
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Organisation is not an approved fund raising org, but gross proceeds are distributed to the holders and calcutta is conducted for social purposes, hence it is permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: False
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: True
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: True
+    calcutta__authority_required: False
+- name: Organisation is not an approved fund raising organisation, gross proceeds are not distributed to the holders, gaming activity is for social purposes, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: False
+    distribution_of_gross_proceeds: False
+    gaming_activity_for_social_purpose: True
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Organisation is neither an approved fund raising organisation, gross proceeds are distributed to holders, gaming activity is for social purposes, hence it is not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: False
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Organisation is receiving a payment or benefit by participants for right to participate in the gaming activity, hence not permitted
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: False
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Reasonable amount of the gross proceeds are not paid to the benefitting organisation
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: False
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Amount of proceeds remaining after payment of prize money and the costs and expenses of the gaming activity are not paid to benefitting organisation
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: False
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    calcutta__game_meets_criteria: False
+    calcutta__authority_required: False
+- name: Total value of all prizes from gaming activity exceed allowable limit hence authority is required to conduct a calcutta
+  period: 2020-07
+  input:
+    gaming_activity_is_calcutta: True
+    is_approved_fund_raising_organisation: True
+    distribution_of_gross_proceeds: True
+    gaming_activity_for_social_purpose: False
+    no_payment_for_right_to_participate: True
+    reasonable_amount_to_benefitting_org: True
+    excess_proceeds_to_benefitting_org: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 31000
+  output:
+    calcutta__game_meets_criteria: True
+    calcutta__authority_required: True
