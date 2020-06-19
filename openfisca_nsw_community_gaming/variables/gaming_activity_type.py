@@ -4,6 +4,33 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
+class GamingActivityType(Enum):
+    art_union_gaming_activity = u'Art Union Gaming Activity'
+    charity_housie = u'Charity Housie'
+    social_housie = u'Social Housie'
+    club_bingo = u'Club Bingo'
+    draw_lottery = u'Draw Lottery'
+    no_draw_lottery = u'No Draw Lottery'
+    mini_numbers_lottery = u'Mini Numbers Lottery'
+    progressive_lottery = u'Progressive Lottery'
+    free_lottery = u'Free Lottery'
+    promotional_raffle = u'Promotional Raffle'
+    trade_promotion = u'Trade Promotion'
+    sweep = u'Sweep'
+    calcutta = u'Calcutta'
+    other_gaming_activity = u'Other Gaming Activity'
+
+
+class gaming_activity_type(Variable):
+    value_type = Enum
+    possible_values = GamingActivityType
+    default_value = GamingActivityType.other_gaming_activity
+    entity = Organisation
+    definition_period = ETERNITY
+    label = u"What type of gaming activity would be conducted?"
+    reference = 'Community Gaming Regulation 2020 Part 2'
+
+
 class gaming_activity_is_art_union_gaming(Variable):
     value_type = bool
     entity = Organisation

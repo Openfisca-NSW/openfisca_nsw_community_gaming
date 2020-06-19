@@ -10,7 +10,7 @@ class trade_promotion__game_meets_criteria(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "The eligibility conditions for organising a trade promotion are being met by the organisation"
-    reference = "Part 2 (14) of Community Gaming Regulationm 2020"
+    reference = "Part 2 (14) of Community Gaming Regulation 2020"
 
     def formula(organisation, period, parameters):
         return (
@@ -32,4 +32,4 @@ class gaming_activity_has_business_consent(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Has a written consent been obtained from a person who is authorised by the business benefiting from the gaming activity?"
+    label = "Has written consent been obtained from a person who is authorised by the business benefiting from the gaming activity?"
