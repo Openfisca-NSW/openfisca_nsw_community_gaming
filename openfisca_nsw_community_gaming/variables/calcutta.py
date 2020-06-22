@@ -4,12 +4,14 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-# This is used to calculate whether an organisation is eligible to conduct a calcutta
+# This is used to calculate whether an organisation is eligible to conduct
+# a calcutta
 class calcutta__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "The eligibility conditions for organising a calcutta are being met by the organisation"
+    label = "The eligibility conditions for organising a calcutta\
+    are being met by the organisation"
 
     def formula(organisation, period, parameters):
         return (
@@ -22,11 +24,15 @@ class calcutta__game_meets_criteria(Variable):
             * organisation('excess_proceeds_to_benefitting_org', period))
 
 
+# This variable is only needed when the calcutta is a permitted gaming
+# activity and is used to calculate whether an authority is required to conduct
+# the calcutta
 class calcutta__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "If the calcutta is a permitted gaming activity, is an authority required to conduct it?"
+    label = "If the calcutta is a permitted gaming activity, is an\
+    authority required to conduct it?"
 
     def formula(organisation, period, parameters):
         return (

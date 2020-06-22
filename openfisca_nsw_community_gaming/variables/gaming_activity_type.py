@@ -101,13 +101,6 @@ class gaming_activity_is_promotional_raffle(Variable):
     label = "Promotional Raffle"
 
 
-class gaming_activity_is_trade_promotion(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Trade Promotion"
-
-
 class gaming_activity_is_sweep(Variable):
     value_type = bool
     entity = Organisation

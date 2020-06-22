@@ -10,19 +10,28 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-# This is used to calculate whether an organisation is permitted to conduct a guessing games
+# This is used to calculate whether an organisation is permitted to conduct
+# a draw lottery
 class draw_lottery__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "The eligibility conditions for organising a draw lottery are being met by the organisation"
+    label = "The eligibility conditions for organising a draw lottery\
+    are being met by the organisation"
 
     def formula(organisation, period, parameters):
         return (
-            (organisation('is_charity', period) + organisation('is_not_for_profit', period))
-            * (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period) <= parameters(period).permitted_games.draw_lottery.max_total_value_of_all_prizes)
+            (organisation('is_charity', period)
+            + organisation('is_not_for_profit', period))
+            * (organisation
+            ('total_prize_value_of_all_prizes_from_gaming_activity',
+             period) <= parameters(period).permitted_games.draw_lottery.
+                max_total_value_of_all_prizes)
             * (organisation('gaming_activity_is_draw_lottery', period))
-            * (organisation('proceeds_to_benefitting_organisation', period)) >= ((organisation('gross_proceeds_from_gaming_activity', period) * parameters(period).permitted_games.draw_lottery.min_gross_proceeds_percent_to_benefit_org)))
+            * (organisation('proceeds_to_benefitting_organisation', period))
+            >= ((organisation('gross_proceeds_from_gaming_activity', period)
+            * parameters(period).permitted_games.draw_lottery.
+                min_gross_proceeds_percent_to_benefit_org)))
 
 
 class draw_lottery__authority_required(Variable):
@@ -30,4 +39,5 @@ class draw_lottery__authority_required(Variable):
     entity = Organisation
     definition_period = MONTH
     default_value = False
-    label = "If the draw lottery is a permitted gaming activity, is an authority required to conduct it?"
+    label = "If the draw lottery is a permitted gaming activity, is an\
+    authority required to conduct it?"
