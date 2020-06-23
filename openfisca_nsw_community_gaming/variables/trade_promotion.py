@@ -14,17 +14,16 @@ class trade_promotion(Variable):
     def formula(organisation, period, parameters):
         rt = organisation('return_type', period)
         RT = rt.possible_values
-        rval = RT.permitted
         meets_criteria = organisation('trade_promotion__game_meets_criteria',
                                       period)
         if not meets_criteria:
-            rval = RT.not_permitted
+            return RT.not_permitted.value
         else:
             auth_required = organisation('trade_promotion__authority_required',
                                          period)
             if auth_required:
-                rval = RT.permitted_with_authority
-        return rval.value
+                return RT.permitted_with_authority.value
+        return RT.permitted.value
 
 
 class trade_promotion__gaming_activity_type(Variable):

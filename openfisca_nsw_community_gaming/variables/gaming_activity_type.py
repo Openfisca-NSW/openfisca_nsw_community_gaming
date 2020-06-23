@@ -31,6 +31,26 @@ class gaming_activity_type(Variable):
     reference = 'Community Gaming Regulation 2020 Part 2'
 
 
+class gaming_activity_result(Variable):
+    value_type = str
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Results of calculation FIXME"
+
+    def formula(organisation, period, parameters):
+        rt = organisation('return_type', period)
+        RT = rt.possible_values
+        gaming_type = organisation(
+            'gaming_activity_type', period).decode_to_str()[0]
+        res = RT(organisation(gaming_type, period))
+        res_dict = {
+            RT.permitted: "You may run this gaming activity without a permit",
+            RT.permitted_with_authority: "blah to authority!",
+            RT.not_permitted: "not permitted blah!"
+            }
+        return res_dict[res]
+
+
 class gaming_activity_is_art_union_gaming(Variable):
     value_type = bool
     entity = Organisation
