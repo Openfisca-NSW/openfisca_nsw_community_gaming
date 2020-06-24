@@ -1,14 +1,14 @@
-# openfisca_nsw_community_gaming 
+# NSW Community Gaming Regulation 2020
 
-This is a template for making extensions in NSW.
+Please note that if an organisation is conducting multiple games at the same
+time, you must create multiple organisations in the JSON object to send to the API.
 
-## Initialising 
+If you try to do more than 1 game in an organisation, it will have unpredictable 
+consequences.
 
-You'll need to rename the openfisca_nsw_extension_template directory to the name
-of your extension. Also edit README.md, setup.py & Makefile, and replace openfisca_nsw_community_gaming with the 
-name of your extension. Replace $SHORT_NAME with a shortened name for it, for example
-openfisca-nsw-rules-kids-vouchers is shortened to "kids". This just makes it easier to
-switch to the virtual env.
+In the future, if there are rules added that require multiple games to be run at
+the same time in an organisation (for example, if there's a yearly limit to the profits
+permissable), the code needs to change to remove the dependency on gaming_activity_type.gaming_activity_result. 
 
 
 ## Installing
@@ -17,9 +17,9 @@ switch to the virtual env.
 you may need to add `--user` at the end of all commands starting by `pip`.
 
 ```sh
-python3 -m venv $SHORT_NAME
+python3 -m venv games
 deactive
-source $SHORT_NAME/bin/activate
+source games/bin/activate
 
 ```
 To install your extension, run:
