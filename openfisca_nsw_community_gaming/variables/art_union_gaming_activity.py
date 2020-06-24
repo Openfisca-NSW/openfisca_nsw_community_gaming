@@ -53,8 +53,6 @@ class art_union__game_meets_criteria(Variable):
         GT = organisation('gaming_activity_type', period).possible_values
         is_gaming_activity_type = organisation('gaming_activity_type', period) ==\
             GT.art_union_gaming_activity
-        import pdb
-        pdb.set_trace()
 
         return (
             is_art_union and is_gaming_activity_type
