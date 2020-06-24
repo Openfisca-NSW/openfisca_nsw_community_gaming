@@ -10,23 +10,33 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-# This is used to calculate whether an organisation is eligible to conduct
-# a calcutta
-class art_union__gaming_activity_type(Variable):
-    value_type = bool
+class art_union_gaming_activity(Variable):
+    value_type = int
     entity = Organisation
     definition_period = ETERNITY
-    label = "Is it an art union gaming activity"
-    reference = "Part 2 (4) - Community Gaming Regulation 2020"
+    label = "Is the Art union gaming activity permitted, and"\
+            " does it require authority?"
+
+    reference = "XXX"
 
     def formula(organisation, period, parameters):
-        gt = organisation('gaming_activity_type', period)
-        GT = gt.possible_values
-        return gt == GT.art_union_gaming_activity
+        rt = organisation('return_type', period)
+        RT = rt.possible_values
+        meets_criteria = organisation('art_union__game_meets_criteria',
+                                      period)
+        if not meets_criteria:
+            return RT.not_permitted.value
+        else:
+            auth_required = organisation('art_union_gaming__authority_required',
+                                         period)
+            if auth_required:
+                return RT.permitted_with_authority.value
+        return RT.permitted.value
 
 
 # This formula is used to calculate whether an organisation
 # meets criteria for conducting an art union gaming activity
+
 class art_union__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
@@ -37,8 +47,15 @@ class art_union__game_meets_criteria(Variable):
 
     def formula(organisation, period, parameters):
 
+        OT = organisation('organisation_type', period).possible_values
+        is_art_union = organisation('organisation_type', period) ==\
+            OT.art_union
+        GT = organisation('gaming_activity_type', period).possible_values
+        is_gaming_activity_type = organisation('gaming_activity_type') ==\
+            GT.art_union__gaming_activity_type
+
         return (
-            organisation('art_union__gaming_activity_type', period)
+            is_art_union and is_gaming_activity_type
             and (organisation(
                  'total_prize_value_of_all_prizes_from_gaming_activity',
                  period) > parameters(
@@ -57,16 +74,18 @@ class art_union__game_meets_criteria(Variable):
                  'money_payable_as_separate_prize', period)
                  <= parameters(period).permitted_games.
                  art_union_gaming_activity.max_money_for_separate_prize)
-            and organisation('is_art_union', period))
+            and organisation('organisation_type', period)) == OT.art_union
 
 
-# This variable is only needed when the calcutta is a permitted gaming
-# activity and is used to calculate whether an authority is required to conduct
-# the art union gaming activity
 class art_union_gaming__authority_required(Variable):
+    """
+    Authority is required for all art union gaming activities, which
+    is why this is always True.
+    """
+
     value_type = bool
     entity = Organisation
-    definition_period = MONTH
+    definition_period = ETERNITY
     default_value = True
     label = "If the art union gaming activity is a permitted gaming activity,\
     is an authority required to conduct it?"

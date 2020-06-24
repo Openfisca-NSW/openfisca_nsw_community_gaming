@@ -4,6 +4,30 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
+class OrganisationType(Enum):
+    charitiable_organisation = u'Charitiable Organisation'
+    non_profit_organisation = u'Non Profit Organisation'
+    art_union = u'Art Union'
+    registered_club = u'Registered Club'
+    political_party = u'Political Party'
+    trade_union = u'Trade Union'
+    racing_club = u'Club registered under the Rules of Racing of Racing NSW'
+    greyhound_racing_club = u'Greyhound racing club within the meaning'\
+        'of the Greyhound Racing Act 2017'
+    harness_racing_club = u'Harness racing club within the meaning'\
+        'of the Harness Racing Act 2009'
+
+
+class organisation_type(Variable):
+    value_type = Enum
+    possible_values = OrganisationType
+    default_value = OrganisationType.harness_racing_club
+    definition_period = ETERNITY
+    entity = Organisation
+    label = u"What type of Organisation is running the Gaming Activity?"
+    reference = 'XXX'
+
+
 class is_charity(Variable):
     value_type = bool
     entity = Organisation
@@ -30,13 +54,6 @@ class is_registered_club(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "Gaming activity is conducted by or on behalf of a registered club"
-
-
-class is_for_profit_business(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a for-profit business"
 
 
 class is_political_party(Variable):

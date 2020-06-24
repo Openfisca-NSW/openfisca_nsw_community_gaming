@@ -50,8 +50,8 @@
 - name: Total prize value is lesser than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_art_union: True
-    gaming_activity_is_art_union_gaming: True
+    organisation_type: [art_union]
+    gaming_activity_type: [art_union_gaming_activity]
     proceeds_to_benefitting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -62,8 +62,8 @@
 - name: Gross proceeds to benefitting organisation are less than 30%, hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_art_union: True
-    gaming_activity_is_art_union_gaming: True
+    organisation_type: [art_union]
+    gaming_activity_type: [art_union_gaming_activity]
     proceeds_to_benefitting_organisation: 10000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -74,8 +74,8 @@
 - name: Money payable as separate prize exceeds allowable limit hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_art_union: True
-    gaming_activity_is_art_union_gaming: True
+    organisation_type: [art_union]
+    gaming_activity_type: [art_union_gaming_activity]
     proceeds_to_benefitting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 35000

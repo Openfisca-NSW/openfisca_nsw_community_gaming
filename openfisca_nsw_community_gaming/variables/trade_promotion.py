@@ -8,8 +8,9 @@ class trade_promotion(Variable):
     value_type = int
     entity = Organisation
     definition_period = ETERNITY
-    label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    label = "Is the Trade promotion gaming activity permitted, and"\
+            " does it require authority?"
+    reference = "XXX"
 
     def formula(organisation, period, parameters):
         rt = organisation('return_type', period)
@@ -44,7 +45,7 @@ class trade_promotion__gaming_activity_type(Variable):
 class trade_promotion__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
-    definition_period = MONTH
+    definition_period = ETERNITY
     label = "The eligibility conditions for organising a trade promotion are\
     being met by the organisation"
     reference = "Part 2 (14) of Community Gaming Regulation 2020"
@@ -62,7 +63,7 @@ class trade_promotion__game_meets_criteria(Variable):
 class trade_promotion__authority_required(Variable):
     value_type = bool
     entity = Organisation
-    definition_period = MONTH
+    definition_period = ETERNITY
     label = "Is an authority required for this permitted trade promotion?"
 
     def formula(organisation, period, parameters):
@@ -74,6 +75,6 @@ class trade_promotion__authority_required(Variable):
 class gaming_activity_has_business_consent(Variable):
     value_type = bool
     entity = Organisation
-    definition_period = MONTH
+    definition_period = ETERNITY
     label = "Has written consent been obtained from a person who is authorised\
     by the business benefiting from the gaming activity?"
