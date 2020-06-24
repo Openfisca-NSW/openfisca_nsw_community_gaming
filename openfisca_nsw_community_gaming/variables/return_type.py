@@ -5,9 +5,9 @@ from openfisca_nsw_base.entities import *
 
 
 class ReturnType(Enum):
-    permitted = 0
-    permitted_with_authority = 1
-    not_permitted = 2
+    permitted = u"You may run this gaming activity without an Authority"
+    permitted_with_authority = u"You must apply for an Authority to run this gaming activity"
+    not_permitted = u"You may not run this gaming activity"
 
 
 class return_type(Variable):

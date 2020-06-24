@@ -2,6 +2,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 
 
 class trade_promotion__gaming_activity_type(Variable):
@@ -58,9 +59,11 @@ class gaming_activity_has_business_consent(Variable):
 
 
 class trade_promotion(Variable):
-    value_type = int
+    value_type = Enum
     entity = Organisation
     definition_period = ETERNITY
+    default_value = ReturnType.not_permitted
+    possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
     reference = ""
 
