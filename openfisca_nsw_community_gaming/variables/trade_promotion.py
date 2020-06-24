@@ -4,29 +4,6 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class trade_promotion(Variable):
-    value_type = int
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Is the Trade promotion gaming activity permitted, and"\
-            " does it require authority?"
-    reference = "XXX"
-
-    def formula(organisation, period, parameters):
-        rt = organisation('return_type', period)
-        RT = rt.possible_values
-        meets_criteria = organisation('trade_promotion__game_meets_criteria',
-                                      period)
-        if not meets_criteria:
-            return RT.not_permitted.value
-        else:
-            auth_required = organisation('trade_promotion__authority_required',
-                                         period)
-            if auth_required:
-                return RT.permitted_with_authority.value
-        return RT.permitted.value
-
-
 class trade_promotion__gaming_activity_type(Variable):
     value_type = bool
     entity = Organisation
@@ -80,7 +57,7 @@ class gaming_activity_has_business_consent(Variable):
     by the business benefiting from the gaming activity?"
 
 
-class trade_promotion_new(Variable):
+class trade_promotion(Variable):
     value_type = int
     entity = Organisation
     definition_period = ETERNITY
@@ -88,16 +65,4 @@ class trade_promotion_new(Variable):
     reference = ""
 
     def formula(organisation, period, parameters):
-        rt = organisation('return_type', period)
-        RT = rt.possible_values
-        meets_criteria = organisation('trade_promotion__game_meets_criteria',
-                                      period)
-        needs_authority = organisation('trade_promotion__authority_required',
-                                    period)
-        return select(
-            [(meets_criteria * needs_authority),
-            (meets_criteria * not_(needs_authority)),
-            not_(meets_criteria)],
-            [RT.permitted_with_authority.value,
-            RT.permitted.value,
-            RT.not_permitted.value])
+        return organisation('gaming_activity_result', period)

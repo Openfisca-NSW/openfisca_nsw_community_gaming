@@ -51,8 +51,10 @@ class art_union__game_meets_criteria(Variable):
         is_art_union = organisation('organisation_type', period) ==\
             OT.art_union
         GT = organisation('gaming_activity_type', period).possible_values
-        is_gaming_activity_type = organisation('gaming_activity_type') ==\
-            GT.art_union__gaming_activity_type
+        is_gaming_activity_type = organisation('gaming_activity_type', period) ==\
+            GT.art_union_gaming_activity
+        import pdb
+        pdb.set_trace()
 
         return (
             is_art_union and is_gaming_activity_type
@@ -67,7 +69,7 @@ class art_union__game_meets_criteria(Variable):
                  'proceeds_to_benefitting_organisation', period)
                  >= ((organisation('gross_proceeds_from_gaming_activity',
                   period)
-                and parameters(period).permitted_games.
+                * parameters(period).permitted_games.
                 art_union_gaming_activity.
                 min_gross_proceeds_percent_to_benefit_org)))
             and (organisation(

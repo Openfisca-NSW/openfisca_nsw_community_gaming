@@ -31,7 +31,7 @@ class gaming_activity_type(Variable):
     reference = 'Community Gaming Regulation 2020 Part 2'
 
 
-class gaming_activity_result(Variable):
+class gaming_activity_result_str(Variable):
     value_type = str
     entity = Organisation
     definition_period = ETERNITY
@@ -49,6 +49,32 @@ class gaming_activity_result(Variable):
             RT.not_permitted: "not permitted blah!"
             }
         return res_dict[res]
+
+
+class gaming_activity_result(Variable):
+    value_type = int
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Whether an gaming activity is permitted, permitted_games"
+    reference = ""
+
+    def formula(organisation, period, parameters):
+        rt = organisation('return_type', period)
+        RT = rt.possible_values
+        gaming_activity = organisation('gaming_activity_type', period).decode_to_str()[0]
+        meets_criteria_str = gaming_activity + "__game_meets_criteria"
+        needs_auth_str = gaming_activity + "__authority_required"
+
+        meets_criteria = organisation(meets_criteria_str, period)
+        needs_authority = organisation(needs_auth_str,
+                                    period)
+        return select(
+            [(meets_criteria * needs_authority),
+            (meets_criteria * not_(needs_authority)),
+            not_(meets_criteria)],
+            [RT.permitted_with_authority.value,
+            RT.permitted.value,
+            RT.not_permitted.value])
 
 
 class gaming_activity_is_charity_housie(Variable):

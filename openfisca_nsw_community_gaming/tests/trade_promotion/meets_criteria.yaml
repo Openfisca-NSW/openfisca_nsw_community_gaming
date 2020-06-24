@@ -36,8 +36,8 @@
     gaming_activity_has_business_consent: False
     total_prize_value_of_all_prizes_from_gaming_activity: 9000
   output:
+    gaming_activity_result: 2
     trade_promotion: 2
-    trade_promotion1: 2
 - name: Organisation is conducting a trade promotion exceeding prize value threshold, hence gaming activity is permitted but authority is required.
   period: 2020-07
   input:
@@ -46,5 +46,5 @@
     gaming_activity_has_business_consent: True
     total_prize_value_of_all_prizes_from_gaming_activity: 11000
   output:
+    gaming_activity_result: 1
     trade_promotion: 1
-    trade_promotion1: 1
