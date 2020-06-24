@@ -39,13 +39,9 @@ class gaming_activity_result_str(Variable):
     label = "Results of calculation FIXME"
 
     def formula(organisation, period, parameters):
-        rt = organisation('return_type', period)
-        RT = rt.possible_values
         gaming_type = organisation(
             'gaming_activity_type', period).decode_to_str()[0]
-        res = RT(organisation(gaming_type, period))
-        return select([res == RT.permitted, res == RT.permitted_with_authority, res == RT.not_permitted],
-                ["\"You may run this gaming activity without a permit\"", "\"blah to authority!\"", "\"not permitted blah!\""])
+        return organisation(gaming_type, period).decode()[0].value
 
 
 class gaming_activity_result(Variable):
