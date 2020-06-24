@@ -8,36 +8,23 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 
 
 class art_union_gaming_activity(Variable):
-    value_type = int
+    value_type = Enum
     entity = Organisation
     definition_period = ETERNITY
-    label = "Is the Art union gaming activity permitted, and"\
-            " does it require authority?"
-
-    reference = "XXX"
+    default_value = ReturnType.not_permitted
+    possible_values = ReturnType
+    label = "Whether an gaming activity is permitted, permitted_games"
+    reference = ""
 
     def formula(organisation, period, parameters):
-        rt = organisation('return_type', period)
-        RT = rt.possible_values
-        meets_criteria = organisation('art_union__game_meets_criteria',
-                                      period)
-        if not meets_criteria:
-            return RT.not_permitted.value
-        else:
-            auth_required = organisation('art_union_gaming__authority_required',
-                                         period)
-            if auth_required:
-                return RT.permitted_with_authority.value
-        return RT.permitted.value
+        return organisation('gaming_activity_result', period)
 
 
-# This formula is used to calculate whether an organisation
-# meets criteria for conducting an art union gaming activity
-
-class art_union__game_meets_criteria(Variable):
+class art_union_gaming_activity__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
@@ -77,7 +64,7 @@ class art_union__game_meets_criteria(Variable):
             and organisation('organisation_type', period)) == OT.art_union
 
 
-class art_union_gaming__authority_required(Variable):
+class art_union_gaming_activity__authority_required(Variable):
     """
     Authority is required for all art union gaming activities, which
     is why this is always True.
