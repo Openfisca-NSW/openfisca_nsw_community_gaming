@@ -78,3 +78,26 @@ class gaming_activity_has_business_consent(Variable):
     definition_period = ETERNITY
     label = "Has written consent been obtained from a person who is authorised\
     by the business benefiting from the gaming activity?"
+
+
+class trade_promotion_new(Variable):
+    value_type = int
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Whether an gaming activity is permitted, permitted_games"
+    reference = ""
+
+    def formula(organisation, period, parameters):
+        rt = organisation('return_type', period)
+        RT = rt.possible_values
+        meets_criteria = organisation('trade_promotion__game_meets_criteria',
+                                      period)
+        needs_authority = organisation('trade_promotion__authority_required',
+                                    period)
+        return select(
+            [(meets_criteria * needs_authority),
+            (meets_criteria * not_(needs_authority)),
+            not_(meets_criteria)],
+            [RT.permitted_with_authority.value,
+            RT.permitted.value,
+            RT.not_permitted.value])
