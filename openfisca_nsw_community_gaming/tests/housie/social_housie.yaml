@@ -27,7 +27,7 @@
 - name: Social housie not being conducted solely for social purposes, hence it is not permitted
   period: 2020-07
   input:
-    gaming_activity_type : [social_housie]
+    gaming_activity_type: [social_housie]
     gaming_activity_solely_for_social_purposes: False
     venue_is_licensed_premises: False
     net_proceeds_returned_to_participants: True
@@ -40,7 +40,7 @@
 - name: Social housie being conducted on licensed premises, hence it is not permitted
   period: 2020-07
   input:
-    gaming_activity_type : [social_housie]
+    gaming_activity_type: [social_housie]
     gaming_activity_solely_for_social_purposes: True
     venue_is_licensed_premises: True
     net_proceeds_returned_to_participants: True
@@ -66,7 +66,7 @@
 - name: Value of jackpot prize exceeds allowable limit, hence social housie is not permitted
   period: 2020-07
   input:
-    gaming_activity_type : [social_housie]
+    gaming_activity_type: [social_housie]
     gaming_activity_solely_for_social_purposes: True
     venue_is_licensed_premises: False
     net_proceeds_returned_to_participants: True

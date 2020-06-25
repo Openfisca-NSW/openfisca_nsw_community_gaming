@@ -47,13 +47,13 @@ class charity_housie__game_meets_criteria(Variable):
         gross_proceeds = organisation('gross_proceeds_from_gaming_activity', period)
         total_prize = organisation('total_prize_value_from_single_gaming_session', period)
         is_charity = organisation('organisation_type', period) ==\
-            OT.charitiable_organisation
+            OT.charitable_organisation
         is_charity_housie = organisation('gaming_activity_type', period) ==\
             GT.charity_housie
 
         return (
             is_charity and is_charity_housie
-            and (organisation('proceeds_to_benefitting_organisation', period)
+            and (organisation('proceeds_to_benefiting_organisation', period)
                 >= parameters(period).permitted_games.housie.min_gross_proceeds_to_benefit_org
                 * gross_proceeds)
             and (organisation('total_expenses_for_conducting_gaming_activity', period)

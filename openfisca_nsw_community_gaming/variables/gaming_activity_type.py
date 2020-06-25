@@ -72,62 +72,6 @@ class gaming_activity_result(Variable):
             RT.not_permitted])
 
 
-class gaming_activity_is_no_draw_lottery(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "No Draw Lottery"
-
-
-class gaming_activity_is_mini_numbers_lottery(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Mini numbers lottery"
-
-
-class gaming_activity_is_progressive_lottery(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Progressive Lottery"
-
-
-class gaming_activity_is_free_lottery(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Free Lottery"
-
-
-class gaming_activity_is_promotional_raffle(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Promotional Raffle"
-
-
-class gaming_activity_is_sweep(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Sweep"
-
-
-class gaming_activity_is_calcutta(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Calcutta"
-
-
-class gaming_activity_is_other(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Other Gaming Activity"
-
-
 class gaming_activity_is_free_to_enter(Variable):
     value_type = bool
     entity = Organisation

@@ -27,15 +27,15 @@ class distribution_of_gross_proceeds(Variable):
     reference = "If a sweep or calcutta is not conducted wholly or partly for or on behalf of an organisation referred to in subclause (2), the gross proceeds are distributed to the holders of the rights in respect of the successful participants in the event to which the calcutta or sweep relates."
 
 
-class reasonable_amount_to_benefitting_org(Variable):
+class reasonable_amount_to_benefiting_org(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Will a resonable amount of the gross proceeds be paid to the benefitting organisation (which will be agreed in writing before the gaming activity is conducted)?"
+    label = "Will a resonable amount of the gross proceeds be paid to the benefiting organisation (which will be agreed in writing before the gaming activity is conducted)?"
     reference = "If a sweep or calcutta is conducted wholly or partly for or on behalf of an organisation referred to in subclause (2)(a) a reasonable amount of the gross proceeds is paid to the organisation, and (b) the amount is agreed in writing before the sweep or calcutta is conducted."
 
 
-class excess_proceeds_to_benefitting_org(Variable):
+class excess_proceeds_to_benefiting_org(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH

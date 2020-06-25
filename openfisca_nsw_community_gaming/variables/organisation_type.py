@@ -22,88 +22,36 @@ class organisation_type(Variable):
     value_type = Enum
     possible_values = OrganisationType
     default_value = OrganisationType.harness_racing_club
-    definition_period = ETERNITY
     entity = Organisation
+    definition_period = ETERNITY
     label = u"What type of Organisation is running the Gaming Activity?"
     reference = 'XXX'
-
-
-class is_charity(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a charitable organisation"
-
-
-class is_not_for_profit(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a non-profit"
-
-
-class is_art_union(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of an art union"
-
-
-class is_registered_club(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a registered club"
-
-
-class is_political_party(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a political party"
-
-
-class is_trade_union(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a trade union"
-
-
-class is_racing_club(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a club registered under the Rules of Racing of Racing New South Wales"
-
-
-class is_greyhound_racing_club(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a greyhound racing club within the meaning of the Greyhound Racing Act 2017"
-
-
-class is_harness_racing_club(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Gaming activity is conducted by or on behalf of a harness racing club within the meaning of the Harness Racing Act 2009"
 
 
 class is_approved_fund_raising_organisation(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "Whether the organisation conducting the gaming activity is an approved fund raising organisation as per Part(2) - 13 ?"
+    label = "If the sweep or calcutta is a permitted gaming activity, is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
+        is_charity = organisation('organisation_type', period) ==\
+            OrganisationType.charitable_organisation
+        is_not_for_profit = organisation('organisation_type', period) ==\
+            OrganisationType.non_profit_organisation
+        is_political_party = organisation('organisation_type', period) ==\
+            OrganisationType.political_party
+        is_trade_union = organisation('organisation_type', period) ==\
+            OrganisationType.trade_union
+        is_registered_club = organisation('organisation_type', period) ==\
+            OrganisationType.registered_club
+        is_racing_club = organisation('organisation_type', period) ==\
+            OrganisationType.racing_club
+        is_greyhound_racing_club = organisation('organisation_type', period) ==\
+            OrganisationType.greyhound_racing_club
+        is_harness_racing_club = organisation('organisation_type', period) ==\
+            OrganisationType.harness_racing_club
         return (
-            (organisation('is_charity', period)
-            + organisation('is_not_for_profit', period)
-            + organisation('is_political_party', period)
-            + organisation('is_trade_union', period)
-            + organisation('is_registered_club', period)
-            + organisation('is_racing_club', period)
-            + organisation('is_greyhound_racing_club', period)
-            + organisation('is_harness_racing_club', period)))
+            is_charity or is_not_for_profit or is_political_party
+            or is_trade_union or is_registered_club or is_racing_club
+            or is_greyhound_racing_club or is_harness_racing_club)

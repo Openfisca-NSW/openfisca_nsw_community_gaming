@@ -28,7 +28,7 @@
   output:
     trade_promotion__game_meets_criteria: False
     trade_promotion__authority_required: False
-- name: Written consent has not been obtained from principal who is benefitting, hence gaming activity is not permitted
+- name: Written consent has not been obtained from principal who is benefiting, hence gaming activity is not permitted
   period: 2020-07
   input:
     gaming_activity_type: [trade_promotion]

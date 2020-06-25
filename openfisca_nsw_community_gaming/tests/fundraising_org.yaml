@@ -1,117 +1,54 @@
 - name: Organisation is a charity, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: True
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [charitable_organisation]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a non-profit, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: True
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [non_profit_organisation]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a political party, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: True
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [political_party]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a trade union, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: True
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [trade_union]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a registered club, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: True
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [registered_club]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a racing club, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: True
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [racing_club]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a greyhound racing club, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: True
-    is_harness_racing_club: False
+    organisation_type: [greyhound_racing_club]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is a harness racing club, hence it is an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: True
+    organisation_type: [harness_racing_club]
   output:
     is_approved_fund_raising_organisation: True
 - name: Organisation is not an approved fund raising organisation
   period: 2020-07
   input:
-    is_charity: False
-    is_not_for_profit: False
-    is_political_party: False
-    is_trade_union: False
-    is_registered_club: False
-    is_racing_club: False
-    is_greyhound_racing_club: False
-    is_harness_racing_club: False
+    organisation_type: [art_union]
   output:
     is_approved_fund_raising_organisation: False

@@ -1,54 +1,44 @@
 - name: Organisation is conducting other gaming activity for charitable purposes, is permitted
   period: 2020-07
   input:
-    gaming_activity_other_for_charitable_purposes: True
+    gaming_activity_type: [other_gaming_activity]
     gross_proceeds_from_gaming_activity: 10000
-    proceeds_to_benefitting_organisation: 4000
+    proceeds_to_benefiting_organisation: 4000
     total_prize_value_from_single_gaming_session: 5000
-    gaming_activity_clause: False
   output:
     other_gaming_activity__game_meets_criteria: True
+    other_gaming_activity__authority_required: False
+    other_gaming_activity: [permitted]
 - name: Organisation is not conducting other gaming activity for charitable purposes, hence not permitted
   period: 2020-07
   input:
-    gaming_activity_other_for_charitable_purposes: False
+    gaming_activity_type: [trade_promotion]
     gross_proceeds_from_gaming_activity: 10000
-    proceeds_to_benefitting_organisation: 4000
+    proceeds_to_benefiting_organisation: 4000
     total_prize_value_from_single_gaming_session: 5000
-    gaming_activity_clause: False
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
-- name: Proceeds to benefitting organisation are less than allowable limit, hence gaming activity is not permitted
+    other_gaming_activity: [not_permitted]
+- name: Proceeds to benefiting organisation are less than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    gaming_activity_other_for_charitable_purposes: True
+    gaming_activity_type: [other_gaming_activity]
     gross_proceeds_from_gaming_activity: 10000
-    proceeds_to_benefitting_organisation: 3900
+    proceeds_to_benefiting_organisation: 3900
     total_prize_value_from_single_gaming_session: 5000
-    gaming_activity_clause: False
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
+    other_gaming_activity: [not_permitted]
 - name: Total prize value from single gaming session is greater than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    gaming_activity_other_for_charitable_purposes: True
+    gaming_activity_type: [other_gaming_activity]
     gross_proceeds_from_gaming_activity: 100000
-    proceeds_to_benefitting_organisation: 40000
+    proceeds_to_benefiting_organisation: 40000
     total_prize_value_from_single_gaming_session: 10000
-    gaming_activity_clause: False
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
-- name: Other gaming activity for charitable purposes is a housie, lottery, sweep, calcutta or art-union gaming activity, hence gaming activity is permitted
-  period: 2020-07
-  input:
-    gaming_activity_other_for_charitable_purposes: True
-    gross_proceeds_from_gaming_activity: 100000
-    proceeds_to_benefitting_organisation: 10000
-    total_prize_value_from_single_gaming_session: 10000
-    gaming_activity_clause: True
-  output:
-    other_gaming_activity__game_meets_criteria: True
-    other_gaming_activity__authority_required: False
+    other_gaming_activity: [not_permitted]
