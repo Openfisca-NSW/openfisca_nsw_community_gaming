@@ -18,8 +18,8 @@ class sweep__game_meets_criteria(Variable):
             + (organisation('distribution_of_gross_proceeds', period)
             * organisation('gaming_activity_for_social_purpose', period)))
             * organisation('no_payment_for_right_to_participate', period)
-            * organisation('reasonable_amount_to_benefitting_org', period)
-            * organisation('excess_proceeds_to_benefitting_org', period))
+            * organisation('reasonable_amount_to_benefiting_org', period)
+            * organisation('excess_proceeds_to_benefiting_org', period))
 
 
 class sweep__authority_required(Variable):

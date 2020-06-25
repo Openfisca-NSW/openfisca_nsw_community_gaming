@@ -18,10 +18,10 @@ class gross_proceeds_from_gaming_activity(Variable):
     reference = "4(a)"
 
 
-class proceeds_to_benefitting_organisation(Variable):
+class proceeds_to_benefiting_organisation(Variable):
     value_type = int
     entity = Organisation
-    label = u"What proceeds would the benefitting organisation receive?"
+    label = u"What proceeds would the benefiting organisation receive?"
     definition_period = MONTH
     reference = "4(a)"
 

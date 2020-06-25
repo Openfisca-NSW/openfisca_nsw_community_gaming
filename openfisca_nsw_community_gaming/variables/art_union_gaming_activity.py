@@ -51,7 +51,7 @@ class art_union_gaming_activity__game_meets_criteria(Variable):
                  art_union_gaming_activity.
                 min_total_value_of_all_prizes)
             and (organisation(
-                 'proceeds_to_benefitting_organisation', period)
+                 'proceeds_to_benefiting_organisation', period)
                  >= ((organisation('gross_proceeds_from_gaming_activity',
                   period)
                 * parameters(period).permitted_games.

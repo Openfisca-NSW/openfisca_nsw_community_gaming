@@ -4,13 +4,6 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 
 
-class ticket_cost(Variable):
-    value_type = float
-    entity = Organisation
-    label = u"Cost of each ticket for participating in the gaming activity"
-    definition_period = MONTH
-
-
 class number_of_tickets(Variable):
     value_type = int
     entity = Organisation

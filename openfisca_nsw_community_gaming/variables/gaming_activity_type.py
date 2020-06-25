@@ -72,34 +72,6 @@ class gaming_activity_result(Variable):
             RT.not_permitted])
 
 
-class gaming_activity_is_charity_housie(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Charity Housie"
-
-
-class gaming_activity_is_social_housie(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Social Housie"
-
-
-class gaming_activity_is_club_bingo(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Club Bingo"
-
-
-class gaming_activity_is_draw_lottery(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = ETERNITY
-    label = "Draw Lottery"
-
-
 class gaming_activity_is_no_draw_lottery(Variable):
     value_type = bool
     entity = Organisation

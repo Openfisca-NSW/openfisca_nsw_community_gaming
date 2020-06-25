@@ -1,104 +1,112 @@
 - name: Organisation is conducting a charity housie that is permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type : [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 40
   output:
+    charity_housie: [permitted]
     charity_housie__game_meets_criteria: True
     charity_housie__authority_required: False
 - name: Organisation is not a charity, hence charity housie is not permitted
   period: 2020-07
   input:
-    is_charity: False
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type : [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
 - name: Gaming activity is not a charity housie, hence not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: False
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type : [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
-- name: Proceeds to benefitting organisation are less than allowable limit, hence gaming activity is not permitted
+- name: Proceeds to benefiting organisation are less than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 499
+    organisation_type: [charitable_organisation]
+    gaming_activity_type: [charity_housie]
+    proceeds_to_benefiting_organisation: 499
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
 - name: Total expenses from gaming activity are greater than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type: [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 501
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
 - name: Total prize value from single gaming session exceeds allowable limit (percentage) hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type : [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 3001
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
 - name: Total prize value from single gaming session exceeds allowable limit (absolute value) hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 10900
+    organisation_type: [charitable_organisation]
+    gaming_activity_type : [charity_housie]
+    proceeds_to_benefiting_organisation: 10900
     gross_proceeds_from_gaming_activity: 11000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 10001
     number_of_tickets: 40
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False
 - name: Max number of tickets to a single player exceed allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    is_charity: True
-    gaming_activity_is_charity_housie: True
-    proceeds_to_benefitting_organisation: 3900
+    organisation_type: [charitable_organisation]
+    gaming_activity_type: [charity_housie]
+    proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
     total_expenses_for_conducting_gaming_activity: 100
     total_prize_value_from_single_gaming_session: 2000
     number_of_tickets: 49
   output:
+    charity_housie: [not_permitted]
     charity_housie__game_meets_criteria: False
     charity_housie__authority_required: False

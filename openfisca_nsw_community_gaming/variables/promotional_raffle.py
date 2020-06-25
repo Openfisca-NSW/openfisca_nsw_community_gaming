@@ -13,7 +13,16 @@ class promotional_raffle__game_meets_criteria(Variable):
 
     def formula(organisation, period, parameters):
         return (
-            organisation('gaming_activity_is_promotional_raffle', period) * organisation('is_registered_club', period) * organisation('venue_is_registered_club', period) * organisation('gaming_activity_organised_for_patronage', period) * (organisation('proceeds_used_for_meeting_cost_of_prizes', period) >= parameters(period).permitted_games.promotional_raffle.min_gross_proceeds_for_prizes * organisation('gross_proceeds_from_gaming_activity', period)) * (organisation('total_prize_value_from_single_gaming_session', period) <= parameters(period).permitted_games.promotional_raffle.max_value_of_prize_per_session) * organisation('no_prize_consists_of_money', period))
+            organisation('gaming_activity_is_promotional_raffle', period) 
+            * organisation('is_registered_club', period)
+            * organisation('venue_is_registered_club', period)
+            * organisation('gaming_activity_organised_for_patronage', period)
+            * (organisation('proceeds_used_for_meeting_cost_of_prizes', period) 
+                >= parameters(period).permitted_games.promotional_raffle.min_gross_proceeds_for_prizes
+                * organisation('gross_proceeds_from_gaming_activity', period))
+            * (organisation('total_prize_value_from_single_gaming_session', period) 
+                <= parameters(period).permitted_games.promotional_raffle.max_value_of_prize_per_session)
+            * organisation('no_prize_consists_of_money', period))
 
 
 class promotional_raffle__authority_required(Variable):

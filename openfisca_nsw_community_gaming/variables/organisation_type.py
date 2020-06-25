@@ -5,7 +5,7 @@ from openfisca_nsw_base.entities import *
 
 
 class OrganisationType(Enum):
-    charitiable_organisation = u'Charitiable Organisation'
+    charitable_organisation = u'Charitable Organisation'
     non_profit_organisation = u'Non Profit Organisation'
     art_union = u'Art Union'
     registered_club = u'Registered Club'
