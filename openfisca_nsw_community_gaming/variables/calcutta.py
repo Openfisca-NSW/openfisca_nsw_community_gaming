@@ -23,30 +23,27 @@ class calcutta(Variable):
 class calcutta__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
-    definition_period = MONTH
-    label = "The eligibility conditions for organising a calcutta are being met by the organisation"
+    definition_period = ETERNITY
+    label = "The eligibility conditions for organising a sweep are being met by the organisation"
 
     def formula(organisation, period, parameters):
         is_calcutta = organisation('gaming_activity_type', period) ==\
             GT.calcutta
+        no_payment_except_for_entry = organisation('sc__no_payment_for_right_to_participate', period)
         return (
-            is_calcutta
-            and (organisation('is_approved_fund_raising_organisation', period)
-            or (organisation('distribution_of_gross_proceeds', period)
-            and organisation('gaming_activity_for_social_purpose', period)))
-            and organisation('no_payment_for_right_to_participate', period)
-            and organisation('reasonable_amount_to_benefiting_org', period)
-            and organisation('excess_proceeds_to_benefiting_org', period))
+            is_sweep
+            and no_payment_except_for_entry
+            and (organisation('sc__fund_raising_game_meets_criteria', period)
+                or organisation('sc__fund_raising_game_meets_criteria', period))
 
 
 class calcutta__authority_required(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = "If the calcutta is a permitted gaming activity, is an authority required to conduct it?"
+    label = "If the calcutta is a permitted gaming activity, "\
+        "is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
         return (
-            (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period)
-            > parameters(period).permitted_games.calcutta.
-                total_prize_threshold))
+            (organisation('sc__authority_required', period))
