@@ -28,6 +28,13 @@ To install your extension, run:
 make install 
 ```
 
+## Running
+
+
+```sh
+openfisca serve --country-package openfisca_nsw_base --extensions openfisca_nsw_community_gaming
+```
+
 ## Testing
 
 You can make sure that everything is working by running the provided tests:
