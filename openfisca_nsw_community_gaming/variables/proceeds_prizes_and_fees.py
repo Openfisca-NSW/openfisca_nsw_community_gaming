@@ -93,10 +93,12 @@ class value_of_individual_prize(Variable):
     definition_period = MONTH
 
 
-class no_fee_charged_for_conducting_game(Variable):
+class no_fees_charged_for_conducting_game(Variable):
     value_type = bool
     entity = Organisation
-    label = "Other than a prize, is there any salary, wage, fee, commission, percentage or other benefit given, paid to or taken by a person in connection with the conduct of the gaming activity?"
+    label = """Other than a prize, is there any salary, wage, fee, commission,
+        percentage or other benefit given, paid to or taken by a person in
+        connection with the conduct of the gaming activity?"""
     definition_period = MONTH
     reference = "Part 2 (14)(a) of Community Gaming Regulationm 2020"
 

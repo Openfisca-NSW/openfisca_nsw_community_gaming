@@ -3,7 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
-from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
 
 
 # This is used to calculate whether an organisation is eligible to conduct a calcutta
@@ -13,7 +12,7 @@ class calcutta(Variable):
     definition_period = ETERNITY
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
-    label = "Whether an gaming activity is permitted, permitted_games"
+    label = "Whether calcutta is a permitted gaming activity"
     reference = ""
 
     def formula(organisation, period, parameters):
@@ -24,17 +23,10 @@ class calcutta__game_meets_criteria(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "The eligibility conditions for organising a sweep are being met by the organisation"
+    label = "The eligibility conditions for organising a calcutta are being met by the organisation"
 
     def formula(organisation, period, parameters):
-        is_calcutta = organisation('gaming_activity_type', period) ==\
-            GT.calcutta
-        no_payment_except_for_entry = organisation('sc__no_payment_for_right_to_participate', period)
-        return (
-            is_sweep
-            and no_payment_except_for_entry
-            and (organisation('sc__fund_raising_game_meets_criteria', period)
-                or organisation('sc__fund_raising_game_meets_criteria', period))
+        return organisation('sc__game_meets_criteria', period)
 
 
 class calcutta__authority_required(Variable):
@@ -45,5 +37,4 @@ class calcutta__authority_required(Variable):
         "is an authority required to conduct it?"
 
     def formula(organisation, period, parameters):
-        return (
-            (organisation('sc__authority_required', period))
+        return organisation('sc__authority_required', period)

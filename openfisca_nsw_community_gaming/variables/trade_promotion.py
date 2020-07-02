@@ -9,7 +9,7 @@ class trade_promotion__gaming_activity_type(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "Is it an trade promotion gaming activity"
+    label = "Is it a trade promotion gaming activity?"
     reference = "Part 2 (14) - Community Gaming Regulation 2020"
 
     def formula(organisation, period, parameters):
@@ -31,8 +31,9 @@ class trade_promotion__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         return (
             organisation('trade_promotion__gaming_activity_type', period)
-            * organisation('no_fee_charged_for_conducting_game', period)
-            * organisation('gaming_activity_has_business_consent', period))
+            * organisation('no_fees_charged_for_conducting_game', period)
+            * organisation('trade_promotion__gaming_activity_has_business_consent',
+                period))
 
 
 # This variable is only needed when the trade promotion is a permitted gaming
@@ -50,7 +51,7 @@ class trade_promotion__authority_required(Variable):
             > parameters(period).permitted_games.trade_promotion.max_total)
 
 
-class gaming_activity_has_business_consent(Variable):
+class trade_promotion__gaming_activity_has_business_consent(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
