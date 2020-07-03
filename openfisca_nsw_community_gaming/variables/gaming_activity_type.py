@@ -17,8 +17,7 @@ class GamingActivityType(Enum):
     free_lottery = u'Free Lottery'
     promotional_raffle = u'Promotional Raffle'
     trade_promotion = u'Trade Promotion'
-    sweep = u'Sweep'
-    calcutta = u'Calcutta'
+    sweep_calcutta = u'Sweep or Calcutta'
     other_gaming_activity = u'Other Gaming Activity'
 
 
