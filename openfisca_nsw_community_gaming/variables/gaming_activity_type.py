@@ -101,8 +101,6 @@ class gaming_activity_authority_fee_str(Variable):
         if organisation('gaming_activity_result', period) != RT.permitted_with_authority:
             return ""
         fee_unit = parameters(period).permitted_games.permits.fee_unit
-        import pdb
-        pdb.set_trace()
 
         one_year_processing = parameters(period).permitted_games\
             .permits.authority_fee[DA.one_year._name_].processing_component
