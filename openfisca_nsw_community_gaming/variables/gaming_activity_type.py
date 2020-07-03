@@ -22,9 +22,9 @@ class GamingActivityType(Enum):
 
 
 class DurationOfAuthority(Enum):
-    one_year = 1
-    three_years = 3
-    five_years = 5
+    one_year = u'One Year'
+    three_years = u'Three Years'
+    five_years = u'Five Years'
 
 
 class gaming_activity_type(Variable):
@@ -109,7 +109,7 @@ class gaming_activity_authority_fee_str(Variable):
             .permits.authority_fee[DA.five_years].fixed_component
         total5 = fee_unit * (five_year_fixed + five_year_processing)
 
-        result_str = "Costs of obtaining an Authority for 1, 3 and 5 years, respectively are ${0}, ${1} and ${2}."
+        result_str = "The cost of obtaining an Authority for one year is ${0}, for three years is ${1} and for five years is ${2}."
         result_str.format(total1, total3, total5)
         return result_str
 
