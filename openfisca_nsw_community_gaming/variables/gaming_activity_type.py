@@ -27,6 +27,17 @@ class DurationOfAuthority(Enum):
     five_years = u'Five Years'
 
 
+# The duration of authority can be 1, 3 or 5 years
+class duration_of_authority(Variable):
+    value_type = Enum
+    possible_values = DurationOfAuthority
+    default_value = DurationOfAuthority.one_year
+    entity = Organisation
+    definition_period = MONTH
+    label = "The number of years for which the applicant has applied for authority (Can be 1, 3 or 5 years)"
+    reference = "XXX FIXME"
+
+
 class gaming_activity_type(Variable):
     value_type = Enum
     possible_values = GamingActivityType
@@ -86,32 +97,33 @@ class gaming_activity_authority_fee_str(Variable):
     def formula(organisation, period, parameters):
         rt = organisation('return_type', period)
         RT = rt.possible_values
-        DA = DurationOfAuthority.possible_values
+        DA = DurationOfAuthority
         if organisation('gaming_activity_result', period) != RT.permitted_with_authority:
             return ""
         fee_unit = parameters(period).permitted_games.permits.fee_unit
+        import pdb
+        pdb.set_trace()
 
         one_year_processing = parameters(period).permitted_games\
-            .permits.authority_fee[DA.one_year].processing_component
+            .permits.authority_fee[DA.one_year._name_].processing_component
         one_year_fixed = parameters(period).permitted_games\
-            .permits.authority_fee[DA.one_year].fixed_component
+            .permits.authority_fee[DA.one_year._name_].fixed_component
         total1 = fee_unit * (one_year_fixed + one_year_processing)
 
         three_year_processing = parameters(period).permitted_games\
-            .permits.authority_fee[DA.three_years].processing_component
+            .permits.authority_fee[DA.three_years._name_].processing_component
         three_year_fixed = parameters(period).permitted_games\
-            .permits.authority_fee[DA.three_years].fixed_component
+            .permits.authority_fee[DA.three_years._name_].fixed_component
         total3 = fee_unit * (three_year_fixed + three_year_processing)
 
         five_year_processing = parameters(period).permitted_games\
-            .permits.authority_fee[DA.five_years].processing_component
+            .permits.authority_fee[DA.five_years._name_].processing_component
         five_year_fixed = parameters(period).permitted_games\
-            .permits.authority_fee[DA.five_years].fixed_component
+            .permits.authority_fee[DA.five_years._name_].fixed_component
         total5 = fee_unit * (five_year_fixed + five_year_processing)
 
         result_str = "The cost of obtaining an Authority for one year is ${0}, for three years is ${1} and for five years is ${2}."
-        result_str.format(total1, total3, total5)
-        return result_str
+        return result_str.format(total1, total3, total5)
 
 
 class gaming_activity_is_free_to_enter(Variable):

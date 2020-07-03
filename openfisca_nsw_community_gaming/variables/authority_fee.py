@@ -8,7 +8,6 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
-from openfisca_nsw_community_gaming.variables.gaming_activity_type import DurationOfAuthority
 
 
 class total_fee_in_dollars(Variable):
@@ -54,14 +53,3 @@ class processing_component_fee_in_units(Variable):
     def formula(organisation, period, parameters):
         duration = organisation('duration_of_authority', period)
         return ((parameters(period).permitted_games.permits.authority_fee[duration].processing_component))
-
-
-# The duration of authority can be 1, 3 or 5 years
-class duration_of_authority(Variable):
-    value_type = Enum
-    possible_values = DurationOfAuthority
-    default_value = DurationOfAuthority.one_year
-    entity = Organisation
-    definition_period = MONTH
-    label = "The number of years for which the applicant has applied for authority (Can be 1, 3 or 5 years)"
-    reference = "XXX FIXME"
