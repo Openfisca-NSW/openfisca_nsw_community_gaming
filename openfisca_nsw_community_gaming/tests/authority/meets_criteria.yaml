@@ -1,7 +1,7 @@
 - name: Organisation has applied for a one year authority
   period: 2020-07
   input:
-    duration_of_authority: 1
+    duration_of_authority: [one_year]
   output:
     fixed_component_fee_in_units: 1.0
     processing_component_fee_in_units: 3.0
@@ -10,7 +10,7 @@
 - name: Organisation has applied for a three year authority
   period: 2020-07
   input:
-    duration_of_authority: 3
+    duration_of_authority: [three_years]
   output:
     fixed_component_fee_in_units: 3.0
     processing_component_fee_in_units: 3.0
@@ -19,7 +19,7 @@
 - name: Organisation has applied for a five year authority
   period: 2020-07
   input:
-    duration_of_authority: 5
+    duration_of_authority: [five_years]
   output:
     fixed_component_fee_in_units: 5.0
     processing_component_fee_in_units: 3.0
