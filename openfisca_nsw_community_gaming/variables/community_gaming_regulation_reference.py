@@ -29,9 +29,9 @@ def cg_json_str(reference):
     community_gaming_dict = community_gaming_reg.part_dict
     del community_gaming_dict["parts"]
     refs_json = str(reference)
-    cgd_json = str(community_gaming_dict)
-    ret = {"rule": cgd_json,
-           "clause": refs_json
+    clause = json.loads(refs_json)
+    ret = {"rule": community_gaming_dict,
+           "clause": clause
            }
     return json.dumps(ret, indent=4, sort_keys=True, default=str)
 
