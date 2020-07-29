@@ -35,7 +35,7 @@ def cg_json_str(reference):
     return json.dumps(ret, indent=4, sort_keys=True, default=str)
 
 
-print(community_gaming_reg["2", "10"].json())
+# print(community_gaming_reg["2", "10"].json())
 
 # print(community_gaming_reg)
 # print(community_gaming_reg["2"])

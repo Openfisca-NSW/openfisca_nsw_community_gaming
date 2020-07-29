@@ -9,6 +9,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class art_union_gaming_activity(Variable):
@@ -30,7 +31,7 @@ class art_union_gaming_activity__game_meets_criteria(Variable):
     definition_period = ETERNITY
     label = "The eligibility conditions for organising an art union gaming \
     activity are being met by the organisation"
-    reference = "Part 2 (4) - Community Gaming Regulation 2020"
+    reference = CGR["2", "4"].json()
 
     def formula(organisation, period, parameters):
 
