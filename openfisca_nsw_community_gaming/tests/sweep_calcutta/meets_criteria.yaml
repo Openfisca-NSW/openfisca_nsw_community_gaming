@@ -1,0 +1,84 @@
+- name: Organisation is an approved fund raising org, sweep or calcutta is permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: True
+   sweep_calcutta__reasonable_amount_to_benefiting_org: True
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+   sweep_calcutta__amount_agreed_in_writing_beforehand: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+   sweep_calcutta: [permitted]
+- name: Gaming activity is neither sweep nor calcutta hence not permitted
+  period: 2020-07
+  input:
+    gaming_activity_type: [social_housie]
+    organisation_type: [charitable_organisation]
+    sweep_calcutta__no_payment_for_right_to_participate: True
+    sweep_calcutta__reasonable_amount_to_benefiting_org: True
+    sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+    sweep_calcutta__amount_agreed_in_writing_beforehand: True
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+    sweep_calcutta: [not_permitted]
+- name: Payment has been taken for right to participate, hence sweep or calcutta is not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: False
+   sweep_calcutta__reasonable_amount_to_benefiting_org: True
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+   sweep_calcutta__amount_agreed_in_writing_beforehand: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+   sweep_calcutta: [not_permitted]
+- name: Reasonable amount will not be paid to benefitting organisation hence not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: True
+   sweep_calcutta__reasonable_amount_to_benefiting_org: False
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+   sweep_calcutta__amount_agreed_in_writing_beforehand: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+     sweep_calcutta: [not_permitted]
+- name: Amount paid will not be what was agreed to, hence not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: True
+   sweep_calcutta__reasonable_amount_to_benefiting_org: True
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: False
+   sweep_calcutta__amount_agreed_in_writing_beforehand: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+   sweep_calcutta: [not_permitted]
+- name: Amount not agreed in writing before hand, hence not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: True
+   sweep_calcutta__reasonable_amount_to_benefiting_org: True
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+   sweep_calcutta__amount_agreed_in_writing_beforehand: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+  output:
+   sweep_calcutta: [not_permitted]
+- name: Total prize value exceeds threshold, permitted but authority is required
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_calcutta]
+   organisation_type: [charitable_organisation]
+   sweep_calcutta__no_payment_for_right_to_participate: True
+   sweep_calcutta__reasonable_amount_to_benefiting_org: True
+   sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
+   sweep_calcutta__amount_agreed_in_writing_beforehand: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 32000
+  output:
+   sweep_calcutta: [permitted_with_authority]
