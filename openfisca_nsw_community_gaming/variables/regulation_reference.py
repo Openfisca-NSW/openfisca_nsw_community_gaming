@@ -30,7 +30,7 @@ class Part(dict):
         return self.part_dict["parts"]
 
     def __str__(self):
-        return json.dumps(self.part_dict, indent=4, sort_keys=True, default=str)
+        return json.dumps(self.part_dict, sort_keys=True, default=str)
 
     def __getitem__(self, item):
         return self.part_dict["parts"][item]

@@ -1,4 +1,5 @@
 from openfisca_nsw_community_gaming.variables.regulation_reference import RegulationReference, Part, PartType as PT
+import json
 
 community_gaming_reg = RegulationReference("Community Gaming Regulation 2020", "1 July 2020",
         "26 June 2020")
@@ -24,9 +25,17 @@ part2.add_parts([
     Part("14", PT.PART, "Trade promotion gaming activities")])
 
 
+def cg_json_str(reference):
+    community_gaming_dict = community_gaming_reg.part_dict
+    del community_gaming_dict["parts"]
+    refs_json = str(reference)
+    cgd_json = str(community_gaming_dict)
+    ret = {"rule": cgd_json,
+           "clause": refs_json
+           }
+    return json.dumps(ret, indent=4, sort_keys=True, default=str)
+
+
 community_gaming_reg.add_parts([part1, part2])
 
-print(community_gaming_reg)
-print(part2)
-
-print(community_gaming_reg["2"]["10"])
+print(cg_json_str(community_gaming_reg["2"]["10"]))
