@@ -8,6 +8,7 @@ class PartType(Enum):
     SCHEDULE = "Schedule"
     DIVISION = "Division"
     CHAPTER = "Chapter"
+    NOTES = "Notes"
 
 
 class _Part:

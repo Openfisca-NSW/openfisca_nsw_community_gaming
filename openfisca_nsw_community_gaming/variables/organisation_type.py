@@ -32,8 +32,8 @@ class is_approved_fund_raising_organisation(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = '''If the sweep or calcutta is a permitted gaming activity, 
-    is an authority required to conduct it?'''
+    label = '''If the sweep or calcutta is a permitted
+    gaming activity, is an authority required to conduct it?'''
 
     def formula(organisation, period, parameters):
         is_charity = organisation('organisation_type', period) ==\
