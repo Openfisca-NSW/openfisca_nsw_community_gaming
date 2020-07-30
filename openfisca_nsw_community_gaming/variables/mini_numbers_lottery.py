@@ -5,6 +5,7 @@ from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.organisation_type import OrganisationType as OT
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class mini_numbers_lottery(Variable):
@@ -14,7 +15,7 @@ class mini_numbers_lottery(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "8"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -28,6 +29,7 @@ class mini_numbers_lottery__game_meets_criteria(Variable):
     definition_period = MONTH
     label = "The eligibility conditions for organising a mini numbers lottery \
     are being met by the organisation"
+    reference = CGR["2", "8"].json()
 
     def formula(organisation, period, parameters):
         is_charity = organisation('organisation_type', period) ==\
@@ -59,3 +61,4 @@ class mini_numbers_lottery__authority_required(Variable):
     definition_period = MONTH
     default_value = False
     label = "If the mini numbers lottery is a permitted gaming activity, is an authority required to conduct it?"
+    reference = CGR["2", "8"].json()

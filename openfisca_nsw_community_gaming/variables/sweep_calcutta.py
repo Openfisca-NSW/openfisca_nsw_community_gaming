@@ -4,6 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class sweep_calcutta(Variable):
@@ -13,7 +14,7 @@ class sweep_calcutta(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "13"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -24,7 +25,7 @@ class sweep_calcutta__gaming_activity_type(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Is it a sweep or calcutta?"
-    reference = "Part 2 (14) - Community Gaming Regulation 2020"
+    reference = CGR["2", "13"].json()
 
     def formula(organisation, period, parameters):
         gt = organisation('gaming_activity_type', period)
@@ -38,6 +39,7 @@ class sweep_calcutta__fund_raising_game_meets_criteria(Variable):
     definition_period = ETERNITY
     label = """Sweep or calcutta meets conditions for being organised by a fund
             raising organisation"""
+    reference = CGR["2", "13"].json()
 
     def formula(organisation, period, parameters):
         return(
@@ -69,6 +71,7 @@ class sweep_calcutta__authority_required(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Is Authority required to run the sweep or calcutta?"
+    reference = CGR["2", "13"].json()
 
     def formula(organisation, period, parameters):
         return (
@@ -82,6 +85,7 @@ class sweep_calcutta__social_game_meets_criteria(Variable):
     definition_period = ETERNITY
     label = "If the sweep or calcutta is a permitted gaming activity, "\
         "is an authority required to conduct it?"
+    reference = CGR["2", "13"].json()
 
     def formula(organisation, period, parameters):
         return(
@@ -95,6 +99,7 @@ class sweep_calcutta__is_social_game(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Is the gaming activity conducted for social purposes?"
+    reference = CGR["2", "13"].json()
 
 
 class sweep_calcutta__all_gross_proceeds_are_distributed_to_participants_based_on_stake_held(Variable):
@@ -102,6 +107,7 @@ class sweep_calcutta__all_gross_proceeds_are_distributed_to_participants_based_o
     entity = Organisation
     definition_period = ETERNITY
     label = "Will all the gross proceeds of the gaming activity be distributed to participants based on stake held?"
+    reference = CGR["2", "13"].json()
 
 
 class sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to(Variable):
@@ -109,6 +115,7 @@ class sweep_calcutta__amount_paid_will_be_at_least_what_agreed_to(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "You agree to pay at least the amount stipulated in the written agreement?"
+    reference = CGR["2", "13"].json()
 
 
 class sweep_calcutta__amount_agreed_in_writing_beforehand(Variable):
@@ -123,6 +130,7 @@ class sweep_calcutta__gaming_activity_for_social_purpose(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "Is the gaming activity being conducted for social purposes?"
+    reference = CGR["2", "13"].json()
 
 
 class sweep_calcutta__no_payment_for_right_to_participate(Variable):
@@ -132,59 +140,37 @@ class sweep_calcutta__no_payment_for_right_to_participate(Variable):
     label = """Will there be a benefit or payment payable for a right
         to participate in the gaming activity? (other than stake money
         or the usual fee for entry to the venue)"""
-
-    reference = "13(1)(b) No payment or benefit is payable for the right to"\
-        "participate in the gaming activity, other than the stake money for the"\
-        "activity. 13(3) Subclause (1)(b) does not apply to the charging of a fee"\
-        "for entry to a venue or function at which a sweep or calcutta is conducted"\
-        "if the fee is not related to the sweep or calcutta and is usually charged"\
-        "for the entry."
+    reference = CGR["2", "13"].json()
 
 
 class distribution_of_gross_proceeds(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-
     label = """If the gaming activity is not conducted wholly or partly for a
         charity, non-profit, political party, trade union, registered club, racing
         club, greyhound racing club or harness racing club, will the gross proceeds
         be distributed to holders of the rights in respect of the succesful
-        participants?" reference = "If a sweep or calcutta is not conducted wholly
-        or partly for or on behalf of an organisation referred to in subclause (2),
-        the gross proceeds are distributed to the holders of the rights in respect
-        of the successful participants in the event to which the calcutta or sweep
-        relates."""
+        participants?"""
+    reference = CGR["2", "13"].json()
 
 
 class sweep_calcutta__reasonable_amount_to_benefiting_org(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-
     label = """Will a resonable amount of the gross proceeds be paid to the
             benefiting organisation (which will be agreed in writing before
             the gaming activity is conducted)?"""
-
-    reference = """If a sweep or calcutta is conducted wholly or partly for or on
-        behalf of an organisation referred to in subclause (2)(a) a reasonable
-        amount of the gross proceeds is paid to the organisation, and (b) the
-        amount is agreed in writing before the sweep or calcutta is conducted."""
+    reference = CGR["2", "13"].json()
 
 
 class excess_proceeds_to_benefiting_org(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-
     label = """Will the amount of proceeds remaining after payment of prize money
         and the costs and expenses of the gaming activity be paid for the purposes
         of the organisation, even if that amount exceeds the agreed amount of the
         gross proceeds?"""
-
-    reference = """Despite subclauses (1) and (4), if a sweep or calcutta is
-        conducted wholly or partly for or on behalf of an organisation referred to
-        in subclause (2), the amount of proceeds remaining after payment of prize
-        money and the costs and expenses of the gaming activity may be paid for the
-        purposes of the organisation, even if that amount exceeds the agreed amount
-        of the gross proceeds."""
+    reference = CGR["2", "13"].json()

@@ -4,6 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 # The code below is used to calcluate whether an organisation meets the
@@ -15,7 +16,7 @@ class progressive_lottery(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "9"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -27,7 +28,7 @@ class progressive_lottery__game_meets_criteria(Variable):
     definition_period = MONTH
     label = "The eligibility conditions for organising a progessive lottery are\
     being met by the organisation"
-    reference = "Part 2(9) of Community Gaming Regulation 2020"
+    reference = CGR["2", "9"].json()
 
     def formula(organisation, period, parameters):
         is_progressive_lottery = organisation('gaming_activity_type', period) ==\
@@ -37,13 +38,6 @@ class progressive_lottery__game_meets_criteria(Variable):
             and (organisation('money_paid_as_prize', period)
             <= parameters(period).permitted_games.progressive_lottery.
             max_value_of_monetary_prize)))
-
-
-class money_paid_as_prize(Variable):
-    value_type = int
-    entity = Organisation
-    definition_period = MONTH
-    label = "What will be the money payable as a prize?"
 
 
 class progressive_lottery__authority_required(Variable):

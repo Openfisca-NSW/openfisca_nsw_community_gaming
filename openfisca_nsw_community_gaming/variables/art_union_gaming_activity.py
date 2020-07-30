@@ -19,7 +19,7 @@ class art_union_gaming_activity(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "4"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -77,4 +77,4 @@ class art_union_gaming_activity__authority_required(Variable):
     default_value = True
     label = "If the art union gaming activity is a permitted gaming activity,\
     is an authority required to conduct it?"
-    reference = "Part 2 (4) - Community Gaming Regulation 2020"
+    reference = CGR["2", "4"].json()

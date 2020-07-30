@@ -8,6 +8,7 @@
 from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class gross_proceeds_from_gaming_activity(Variable):
@@ -15,7 +16,6 @@ class gross_proceeds_from_gaming_activity(Variable):
     entity = Organisation
     label = u"What are the gross proceeds from the gaming activity?"
     definition_period = MONTH
-    reference = "4(a)"
 
 
 class proceeds_to_benefiting_organisation(Variable):
@@ -23,7 +23,6 @@ class proceeds_to_benefiting_organisation(Variable):
     entity = Organisation
     label = u"What proceeds would the benefiting organisation receive?"
     definition_period = MONTH
-    reference = "4(a)"
 
 
 class proceeds_used_for_meeting_cost_of_prizes(Variable):
@@ -31,7 +30,7 @@ class proceeds_used_for_meeting_cost_of_prizes(Variable):
     entity = Organisation
     label = u"What amount of proceeds would be used to meet the cost of the prizes in the gaming activity or other similar gaming activities?"
     definition_period = MONTH
-    reference = "11(c)"
+    reference = CGR["2", "11"].json()
 
 
 class total_expenses_for_conducting_gaming_activity(Variable):
@@ -39,7 +38,6 @@ class total_expenses_for_conducting_gaming_activity(Variable):
     entity = Organisation
     label = u"What would be the total value of the expenses for conducting the gaming activity?"
     definition_period = MONTH
-    reference = "2(c)"
 
 
 class net_proceeds_returned_to_participants(Variable):
@@ -47,7 +45,7 @@ class net_proceeds_returned_to_participants(Variable):
     entity = Organisation
     label = "Would the total amount invested by participants in a session of the gaming activity (after the cost of prizes and expenses of conducting the session are deducted), be returned to participants"
     definition_period = MONTH
-    reference = "3(e)"
+    reference = CGR["2", "5"].json()
 
 
 class money_payable_as_separate_prize(Variable):
@@ -55,6 +53,7 @@ class money_payable_as_separate_prize(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "What would be the amount of money payable as a separate prize? (in addition to other prizes of the gaming activity)"
+    reference = CGR["2", "4"].json()
 
 
 class total_prize_value_of_all_prizes_from_gaming_activity(Variable):
@@ -62,7 +61,6 @@ class total_prize_value_of_all_prizes_from_gaming_activity(Variable):
     entity = Organisation
     label = u"What is the total prize value of all the prizes in the gaming activity?"
     definition_period = MONTH
-    reference = 'Part 2 - 14 (2)(c) of the Community Gaming Regulation 2020'
 
 
 class highest_value_of_individual_prize_in_gaming_activity(Variable):
@@ -77,6 +75,7 @@ class value_of_jackpot_prize(Variable):
     entity = Organisation
     label = u"Highest value of jackpot prize in gaming activity"
     definition_period = MONTH
+    reference = CGR["2", "5"].json()
 
 
 class value_of_bonus_prize(Variable):
@@ -100,7 +99,7 @@ class no_fees_charged_for_conducting_game(Variable):
         percentage or other benefit given, paid to or taken by a person in
         connection with the conduct of the gaming activity?"""
     definition_period = MONTH
-    reference = "Part 2 (14)(a) of Community Gaming Regulationm 2020"
+    reference = CGR["2", "14"].json()
 
 
 class participation_is_free(Variable):
@@ -108,6 +107,7 @@ class participation_is_free(Variable):
     entity = Organisation
     label = "Whether it is free to participate in the gaming activity?"
     definition_period = MONTH
+    reference = CGR["2", "10"].json()
 
 
 class total_prize_value_from_single_gaming_session(Variable):
@@ -122,3 +122,11 @@ class no_prize_consists_of_money(Variable):
     entity = Organisation
     label = u"None of the prizes consist of or include money"
     definition_period = MONTH
+
+
+class money_paid_as_prize(Variable):
+    value_type = int
+    entity = Organisation
+    definition_period = MONTH
+    label = "What will be the money payable as a prize?"
+    reference = CGR["2", "9"].json()

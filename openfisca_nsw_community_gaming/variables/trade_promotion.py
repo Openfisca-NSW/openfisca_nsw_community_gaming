@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class trade_promotion__gaming_activity_type(Variable):
@@ -10,7 +11,7 @@ class trade_promotion__gaming_activity_type(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Is it a trade promotion gaming activity?"
-    reference = "Part 2 (14) - Community Gaming Regulation 2020"
+    reference = CGR["2", "14"].json()
 
     def formula(organisation, period, parameters):
         gt = organisation('gaming_activity_type', period)
@@ -26,7 +27,7 @@ class trade_promotion__game_meets_criteria(Variable):
     definition_period = ETERNITY
     label = "The eligibility conditions for organising a trade promotion are\
     being met by the organisation"
-    reference = "Part 2 (14) of Community Gaming Regulation 2020"
+    reference = CGR["2", "14"].json()
 
     def formula(organisation, period, parameters):
         return (
@@ -44,6 +45,7 @@ class trade_promotion__authority_required(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Is an authority required for this permitted trade promotion?"
+    reference = CGR["2", "14"].json()
 
     def formula(organisation, period, parameters):
         return (organisation
@@ -57,6 +59,7 @@ class trade_promotion__gaming_activity_has_business_consent(Variable):
     definition_period = ETERNITY
     label = "Has written consent been obtained from a person who is authorised\
     by the business benefiting from the gaming activity?"
+    reference = CGR["2", "14"].json()
 
 
 class trade_promotion(Variable):
@@ -66,7 +69,7 @@ class trade_promotion(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "14"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)

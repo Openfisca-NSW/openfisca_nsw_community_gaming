@@ -4,6 +4,7 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 # This is used to calculate whether an organisation is eligible to
@@ -15,7 +16,7 @@ class free_lottery(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "10"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -26,6 +27,7 @@ class free_lottery__game_meets_criteria(Variable):
     entity = Organisation
     definition_period = MONTH
     label = "The eligibility conditions for organising a free lottery are being met by the organisation"
+    reference = CGR["2", "10"].json()
 
     def formula(organisation, period, parameters):
         is_free_lottery = organisation('gaming_activity_type', period) ==\
@@ -45,3 +47,4 @@ class free_lottery__authority_required(Variable):
     definition_period = MONTH
     default_value = False
     label = "If the free lottery is a permitted gaming activity, is an authority required to conduct it?"
+    reference = CGR["2", "10"].json()

@@ -4,6 +4,8 @@ from openfisca_core.model_api import *
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
+
 
 # This is used to calculate whether an organisation is eligible to conduct other gaming activity for charitable purposes
 
@@ -15,7 +17,7 @@ class other_gaming_activity(Variable):
     default_value = ReturnType.not_permitted
     possible_values = ReturnType
     label = "Whether an gaming activity is permitted, permitted_games"
-    reference = ""
+    reference = CGR["2", "12"].json()
 
     def formula(organisation, period, parameters):
         return organisation('gaming_activity_result', period)
@@ -28,6 +30,7 @@ class other_gaming_activity__game_meets_criteria(Variable):
     label = "The eligibility conditions for organising other gaming activity\
     (that is not an art union gaming activity, housie, lottery, sweep\
     or calcutta) is being met by the organisation"
+    reference = CGR["2", "12"].json()
 
     def formula(organisation, period, parameters):
         is_other_gaming_activity = organisation('gaming_activity_type', period) ==\
@@ -49,3 +52,4 @@ class other_gaming_activity__authority_required(Variable):
     definition_period = MONTH
     default_value = False
     label = "If the other gaming activity is a permitted gaming activity, is an authority required to conduct it?"
+    reference = CGR["2", "12"].json()
