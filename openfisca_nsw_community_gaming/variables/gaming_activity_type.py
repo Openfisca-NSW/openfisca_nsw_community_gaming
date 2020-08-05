@@ -17,7 +17,7 @@ class GamingActivityType(Enum):
     free_lottery = u'Free Lottery'
     promotional_raffle = u'Promotional Raffle'
     trade_promotion = u'Trade Promotion'
-    sweep_calcutta = u'Sweep or Calcutta'
+    sweep_or_calcutta = u'Sweep or Calcutta'
     other_gaming_activity = u'Other Gaming Activity'
 
 
@@ -135,7 +135,7 @@ class gaming_activity_solely_for_social_purposes(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "Whether organisation is conducting this gaming activity solely for social purposes?"
+    label = "Is the gaming activity being operated only for social purposes?"
 
 
 class gaming_activity_other_for_charitable_purposes(Variable):

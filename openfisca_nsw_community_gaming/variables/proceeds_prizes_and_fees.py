@@ -95,9 +95,9 @@ class value_of_individual_prize(Variable):
 class no_fees_charged_for_conducting_game(Variable):
     value_type = bool
     entity = Organisation
-    label = """Other than a prize, is there any salary, wage, fee, commission,
-        percentage or other benefit given, paid to or taken by a person in
-        connection with the conduct of the gaming activity?"""
+    label = """Will any entry or other fee be charged to participate
+    in the gaming activity? (other than purchasing goods or services
+    at a normal retail price)"""
     definition_period = MONTH
     reference = CGR["2", "14"].json()
 
@@ -120,7 +120,7 @@ class total_prize_value_from_single_gaming_session(Variable):
 class no_prize_consists_of_money(Variable):
     value_type = bool
     entity = Organisation
-    label = u"None of the prizes consist of or include money"
+    label = u"Do any of the prizes consist of money?"
     definition_period = MONTH
 
 

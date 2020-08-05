@@ -51,6 +51,7 @@ class art_union_gaming_activity__game_meets_criteria(Variable):
                  ).permitted_games.
                  art_union_gaming_activity.
                 min_total_value_of_all_prizes)
+            and (organisation('art_union_gaming_activity__purpose', period))
             and (organisation(
                  'proceeds_to_benefiting_organisation', period)
                  >= ((organisation('gross_proceeds_from_gaming_activity',
@@ -70,7 +71,6 @@ class art_union_gaming_activity__authority_required(Variable):
     Authority is required for all art union gaming activities, which
     is why this is always True.
     """
-
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
@@ -78,3 +78,57 @@ class art_union_gaming_activity__authority_required(Variable):
     label = "If the art union gaming activity is a permitted gaming activity,\
     is an authority required to conduct it?"
     reference = CGR["2", "4"].json()
+
+
+class art_union_gaming_activity__purpose(Variable):
+    """
+    What is the purpose of running the Art union gaming activity?
+    """
+    value_type = bool
+    entity = Organisation
+    definition_period = ETERNITY
+    default_value = True
+    label = "What is the purpose of running the Art union gaming activity?"
+    reference = CGR["1", "3"].json()
+
+    def formula(organisation, period, parameters):
+        return (organisation('gaming_activity__charitable_purpose', period)
+            or organisation('gaming_activity__non_profit_purpose', period)
+            or organisation('gaming_activity__has_charitable_nature', period))
+
+
+class gaming_activity__charitable_purpose(Variable):
+    """
+    Is the gaming activity raising funds to support a charitable organisation?
+    """
+    value_type = bool
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Is the gaming activity raising funds to support a charitable \
+    organisation?"
+    reference = CGR["1", "3"].json()
+
+
+class gaming_activity__non_profit_purpose(Variable):
+    """
+    Is the gaming activity raising funds to support a non profit organisation?
+    """
+    value_type = bool
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Is the gaming activity raising funds to support a non profit \
+    organisation?"
+    reference = CGR["1", "3"].json()
+
+
+class gaming_activity__has_charitable_nature(Variable):
+    """
+    Is the gaming activity raising funds to support an object of a genuinely
+    public or charitable character?
+    """
+    value_type = bool
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Is the gaming activity raising funds to support an object\
+    of a genuinely public or charitable character?"
+    reference = CGR["1", "3"].json()

@@ -6,6 +6,8 @@
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: True
   output:
     club_bingo__game_meets_criteria: True
     club_bingo__authority_required: False
@@ -18,6 +20,8 @@
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: True
   output:
     club_bingo__game_meets_criteria: False
     club_bingo__authority_required: False
@@ -30,6 +34,8 @@
     total_prize_value_from_single_gaming_session: 71
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: True
   output:
     club_bingo__game_meets_criteria: False
     club_bingo__authority_required: False
@@ -42,6 +48,8 @@
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 71
     no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: True
   output:
     club_bingo__game_meets_criteria: False
     club_bingo__authority_required: False
@@ -54,6 +62,36 @@
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: False
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: True
+  output:
+    club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
+    club_bingo: [not_permitted]
+- name: Club bingo is not organised for attracting patronage, hence not permitted
+  period: 2020-07
+  input:
+    organisation_type: [registered_club]
+    gaming_activity_type: [club_bingo]
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: False
+    venue_is_registered_club: True
+  output:
+    club_bingo__game_meets_criteria: False
+    club_bingo__authority_required: False
+    club_bingo: [not_permitted]
+- name: Club bingo is not organised on premises of registered club, hence not permitted
+  period: 2020-07
+  input:
+    organisation_type: [registered_club]
+    gaming_activity_type: [club_bingo]
+    total_prize_value_from_single_gaming_session: 60
+    value_of_bonus_prize: 60
+    no_prize_consists_of_money: True
+    gaming_activity_organised_for_patronage: True
+    venue_is_registered_club: False
   output:
     club_bingo__game_meets_criteria: False
     club_bingo__authority_required: False
