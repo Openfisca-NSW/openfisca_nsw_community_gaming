@@ -161,7 +161,9 @@ class club_bingo__game_meets_criteria(Variable):
             and (organisation('value_of_bonus_prize', period)
                <= parameters(period).permitted_games.housie.
                max_bonus_prize)
-            and organisation('no_prize_consists_of_money', period))
+            and organisation('no_prize_consists_of_money', period)
+            and organisation('gaming_activity_organised_for_patronage', period)
+            and organisation('venue_is_registered_club', period))
 
 
 class club_bingo__authority_required(Variable):

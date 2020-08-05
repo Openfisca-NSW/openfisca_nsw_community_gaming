@@ -11,11 +11,9 @@ class OrganisationType(Enum):
     registered_club = u'Registered Club'
     political_party = u'Political Party'
     trade_union = u'Trade Union'
-    racing_club = u'Club registered under the Rules of Racing of Racing NSW'
-    greyhound_racing_club = u'Greyhound racing club within the meaning'\
-        'of the Greyhound Racing Act 2017'
-    harness_racing_club = u'Harness racing club within the meaning'\
-        'of the Harness Racing Act 2009'
+    racing_club = u'Racing Club'
+    greyhound_racing_club = u'Greyhound racing club'
+    harness_racing_club = u'Harness racing club'
 
 
 class organisation_type(Variable):
@@ -24,7 +22,7 @@ class organisation_type(Variable):
     default_value = OrganisationType.harness_racing_club
     entity = Organisation
     definition_period = ETERNITY
-    label = u"What type of Organisation is running the Gaming Activity?"
+    label = u"What type of Organisation is the gaming activity being conducted by or on behalf of?"
     reference = 'XXX'
 
 
