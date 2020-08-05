@@ -120,7 +120,7 @@ class total_prize_value_from_single_gaming_session(Variable):
 class no_prize_consists_of_money(Variable):
     value_type = bool
     entity = Organisation
-    label = u"Does any of the prizes consist of money?"
+    label = u"Do any of the prizes consist of money?"
     definition_period = MONTH
 
 
