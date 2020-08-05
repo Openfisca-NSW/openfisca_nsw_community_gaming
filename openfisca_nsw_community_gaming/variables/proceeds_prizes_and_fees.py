@@ -97,7 +97,7 @@ class no_fees_charged_for_conducting_game(Variable):
     entity = Organisation
     label = """Will any entry or other fee be charged to participate
     in the gaming activity? (other than purchasing goods or services
-    at a normal retail price?)"""
+    at a normal retail price)"""
     definition_period = MONTH
     reference = CGR["2", "14"].json()
 
