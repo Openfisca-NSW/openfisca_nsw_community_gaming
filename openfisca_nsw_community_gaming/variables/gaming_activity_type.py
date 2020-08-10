@@ -3,6 +3,7 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
+from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
 
 class GamingActivityType(Enum):
@@ -150,3 +151,18 @@ class gaming_activity_solely_or_partly_for_fundraising(Variable):
     entity = Organisation
     definition_period = ETERNITY
     label = "Whether organisation is conducting this gaming activity solely for entertainment purposes? (Totally non-charitable purposes)"
+
+
+class gaming_activity_on_authority_of_reg_club(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = ETERNITY
+    label = "Is the gaming activity conducted by or on the authority of a registered club?"
+
+
+class gaming_activity_organised_for_patronage(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = "Will the gaming activity will be conducted for the purpose of attracting patronage to the club's facilities?"
+    reference = CGR["2", "11"].json()
