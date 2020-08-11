@@ -2,8 +2,8 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [registered_club]
     venue_is_registered_club: True
+    gaming_activity_on_authority_of_reg_club: True
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
@@ -17,8 +17,8 @@
   period: 2020-07
   input:
     gaming_activity_type: [charity_housie]
-    organisation_type: [registered_club]
     venue_is_registered_club: True
+    gaming_activity_on_authority_of_reg_club: True
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
@@ -28,11 +28,11 @@
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
     promotional_raffle: [not_permitted]
-- name: Organisation is not a registered club, hence promotional raffle is not permitted
+- name: Promotional raffle is not being conducted by or on authority of a registered club
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [political_party]
+    gaming_activity_on_authority_of_reg_club: False
     venue_is_registered_club: True
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 9000
@@ -47,7 +47,7 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [registered_club]
+    gaming_activity_on_authority_of_reg_club: True
     venue_is_registered_club: False
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 9000
@@ -62,7 +62,7 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [registered_club]
+    gaming_activity_on_authority_of_reg_club: True
     venue_is_registered_club: True
     gaming_activity_organised_for_patronage: False
     proceeds_used_for_meeting_cost_of_prizes: 9000
@@ -77,7 +77,7 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [registered_club]
+    gaming_activity_on_authority_of_reg_club: True
     venue_is_registered_club: True
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 8900
@@ -91,6 +91,7 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
+    gaming_activity_on_authority_of_reg_club: True
     organisation_type: [registered_club]
     venue_is_registered_club: True
     gaming_activity_organised_for_patronage: True
@@ -106,7 +107,7 @@
   period: 2020-07
   input:
     gaming_activity_type: [promotional_raffle]
-    organisation_type: [registered_club]
+    gaming_activity_on_authority_of_reg_club: True
     venue_is_registered_club: True
     gaming_activity_organised_for_patronage: True
     proceeds_used_for_meeting_cost_of_prizes: 9000

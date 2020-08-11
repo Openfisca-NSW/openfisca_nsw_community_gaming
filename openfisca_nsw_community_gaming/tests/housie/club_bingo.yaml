@@ -1,8 +1,8 @@
 - name: Organisation is conducting a club bingo that is permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
@@ -12,11 +12,11 @@
     club_bingo__game_meets_criteria: True
     club_bingo__authority_required: False
     club_bingo: [permitted]
-- name: Organisation is not a registered club, hence club bingo is not permitted
+- name: Club bingo is not conducted by or on authority of registered club, hence not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: False
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
@@ -29,8 +29,8 @@
 - name: Total prize value for 1 game exceeds allowable limit, hence club bingo is not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 71
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
@@ -43,8 +43,8 @@
 - name: Total prize value for bonus prize exceeds allowable limit, hence club bingo is not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 71
     no_prize_consists_of_money: True
@@ -57,8 +57,8 @@
 - name: Prize value consists of money, hence club bingo is not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: False
@@ -71,8 +71,8 @@
 - name: Club bingo is not organised for attracting patronage, hence not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True
@@ -85,8 +85,8 @@
 - name: Club bingo is not organised on premises of registered club, hence not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
     gaming_activity_type: [club_bingo]
+    gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
     no_prize_consists_of_money: True

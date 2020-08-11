@@ -5,7 +5,6 @@ from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
 from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
-from openfisca_nsw_community_gaming.variables.organisation_type import OrganisationType as OT
 
 
 class promotional_raffle(Variable):
@@ -30,10 +29,8 @@ class promotional_raffle__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         is_promotional_raffle = organisation('gaming_activity_type', period) ==\
             GT.promotional_raffle
-        is_registered_club = organisation('organisation_type', period) ==\
-            OT.registered_club
         return (
-            is_promotional_raffle and is_registered_club
+            is_promotional_raffle
             and organisation('venue_is_registered_club', period)
             and organisation('gaming_activity_organised_for_patronage', period)
             and (organisation('proceeds_used_for_meeting_cost_of_prizes', period)
@@ -43,7 +40,8 @@ class promotional_raffle__game_meets_criteria(Variable):
             and (organisation('total_prize_value_from_single_gaming_session', period)
                 <= parameters(period).permitted_games.promotional_raffle.
                 max_value_of_prize_per_session)
-            and organisation('no_prize_consists_of_money', period))
+            and organisation('no_prize_consists_of_money', period)
+            and organisation('gaming_activity_on_authority_of_reg_club', period))
 
 
 class promotional_raffle__authority_required(Variable):
