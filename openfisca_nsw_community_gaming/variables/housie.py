@@ -149,12 +149,10 @@ class club_bingo__game_meets_criteria(Variable):
     reference = CGR["2", "5"].json()
 
     def formula(organisation, period, parameters):
-        is_registered_club = organisation('organisation_type', period) ==\
-            OT.registered_club
         is_club_bingo = organisation('gaming_activity_type', period) ==\
             GT.club_bingo
         return (
-            is_registered_club and is_club_bingo
+            is_club_bingo
             and (organisation('total_prize_value_from_single_gaming_session', period)
                <= parameters(period).permitted_games.housie.
                max_value_of_prize_per_session.club_bingo)
@@ -163,7 +161,8 @@ class club_bingo__game_meets_criteria(Variable):
                max_bonus_prize)
             and organisation('no_prize_consists_of_money', period)
             and organisation('gaming_activity_organised_for_patronage', period)
-            and organisation('venue_is_registered_club', period))
+            and organisation('venue_is_registered_club', period)
+            and organisation('gaming_activity_on_authority_of_reg_club', period))
 
 
 class club_bingo__authority_required(Variable):

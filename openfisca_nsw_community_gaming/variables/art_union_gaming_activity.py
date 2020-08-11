@@ -92,12 +92,12 @@ class art_union_gaming_activity__purpose(Variable):
     reference = CGR["1", "3"].json()
 
     def formula(organisation, period, parameters):
-        return (organisation('gaming_activity__charitable_purpose', period)
-            or organisation('gaming_activity__non_profit_purpose', period)
+        return (organisation('raising_funds_for_charitable_purpose', period)
+            or organisation('raising_funds_for_non_profit_purpose', period)
             or organisation('gaming_activity__has_charitable_nature', period))
 
 
-class gaming_activity__charitable_purpose(Variable):
+class raising_funds_for_charitable_purpose(Variable):
     """
     Is the gaming activity raising funds to support a charitable organisation?
     """
@@ -109,7 +109,7 @@ class gaming_activity__charitable_purpose(Variable):
     reference = CGR["1", "3"].json()
 
 
-class gaming_activity__non_profit_purpose(Variable):
+class raising_funds_for_non_profit_purpose(Variable):
     """
     Is the gaming activity raising funds to support a non profit organisation?
     """

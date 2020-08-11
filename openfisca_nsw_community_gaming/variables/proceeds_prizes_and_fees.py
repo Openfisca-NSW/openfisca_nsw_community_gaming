@@ -43,7 +43,7 @@ class total_expenses_for_conducting_gaming_activity(Variable):
 class net_proceeds_returned_to_participants(Variable):
     value_type = bool
     entity = Organisation
-    label = "Would the total amount invested by participants in a session of the gaming activity (after the cost of prizes and expenses of conducting the session are deducted), be returned to participants"
+    label = "Would the total amount invested by participants in a session of the gaming activity (after the cost of prizes and expenses of conducting the session are deducted), be returned to participants?"
     definition_period = MONTH
     reference = CGR["2", "5"].json()
 
@@ -73,7 +73,7 @@ class highest_value_of_individual_prize_in_gaming_activity(Variable):
 class value_of_jackpot_prize(Variable):
     value_type = int
     entity = Organisation
-    label = u"Highest value of jackpot prize in gaming activity"
+    label = u"What will be the highest value of the jackpot prize in the gaming activity?"
     definition_period = MONTH
     reference = CGR["2", "5"].json()
 
@@ -81,7 +81,7 @@ class value_of_jackpot_prize(Variable):
 class value_of_bonus_prize(Variable):
     value_type = int
     entity = Organisation
-    label = u"Total value of bonus prize in gaming activity"
+    label = u"If there is a bonus prize in the gaming activity, what will its value be?"
     definition_period = MONTH
 
 
@@ -105,7 +105,7 @@ class no_fees_charged_for_conducting_game(Variable):
 class participation_is_free(Variable):
     value_type = bool
     entity = Organisation
-    label = "Whether it is free to participate in the gaming activity?"
+    label = "Will the gaming activity be free to participate in?"
     definition_period = MONTH
     reference = CGR["2", "10"].json()
 
@@ -113,7 +113,7 @@ class participation_is_free(Variable):
 class total_prize_value_from_single_gaming_session(Variable):
     value_type = int
     entity = Organisation
-    label = u"Total prize value of all the prizes for 1 session of the gaming activity"
+    label = u"What will be the total prize value of all the prizes for 1 session of the gaming activity?"
     definition_period = MONTH
 
 

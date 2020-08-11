@@ -8,7 +8,7 @@ from openfisca_nsw_community_gaming.variables.community_gaming_regulation_refere
 class venue_is_licensed_premises(Variable):
     value_type = bool
     entity = Organisation
-    label = u"Will the gaming activity will be conducted on licensed premises?"
+    label = u"Will the gaming activity be conducted on licensed premises?"
     definition_period = MONTH
     reference = CGR["2", "5"].json()
 
