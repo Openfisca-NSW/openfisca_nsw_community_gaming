@@ -57,8 +57,7 @@ class trade_promotion__gaming_activity_has_business_consent(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "Will written consent be obtained from a person who is authorised\
-    by the business benefiting from the gaming activity?"
+    label = "Will written consent be obtained from an authorised person?"
     reference = CGR["2", "14"].json()
 
 

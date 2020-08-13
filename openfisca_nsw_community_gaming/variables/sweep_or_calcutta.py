@@ -114,7 +114,7 @@ class sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "You agree to pay at least the amount stipulated in the written agreement?"
+    label = "Do you agree to pay at least the amount stipulated in the written agreement?"
     reference = CGR["2", "13"].json()
 
 
