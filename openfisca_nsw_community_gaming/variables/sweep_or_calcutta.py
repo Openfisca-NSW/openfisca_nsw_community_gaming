@@ -58,7 +58,7 @@ class sweep_or_calcutta__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         is_sweep_or_calcutta = organisation('gaming_activity_type', period) ==\
             GT.sweep_or_calcutta
-        no_payment_except_for_entry = organisation('sweep_or_calcutta__no_payment_for_right_to_participate', period)
+        no_payment_except_for_entry = not_(organisation('fees_for_participation', period))
         return (
             is_sweep_or_calcutta
             and no_payment_except_for_entry
@@ -133,7 +133,7 @@ class sweep_or_calcutta__gaming_activity_for_social_purpose(Variable):
     reference = CGR["2", "13"].json()
 
 
-class sweep_or_calcutta__no_payment_for_right_to_participate(Variable):
+class fees_for_participation(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH

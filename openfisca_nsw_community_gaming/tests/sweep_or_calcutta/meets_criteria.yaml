@@ -3,7 +3,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: True
+   fees_for_participation: False
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
@@ -15,7 +15,7 @@
   input:
     gaming_activity_type: [social_housie]
     organisation_type: [charitable_organisation]
-    sweep_or_calcutta__no_payment_for_right_to_participate: True
+    fees_for_participation: False
     sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
     sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
     sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
@@ -27,7 +27,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: False
+   fees_for_participation: True
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
@@ -39,7 +39,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: True
+   fees_for_participation: False
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: False
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
@@ -51,7 +51,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: True
+   fees_for_participation: False
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: False
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
@@ -63,7 +63,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: True
+   fees_for_participation: False
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: False
@@ -75,7 +75,7 @@
   input:
    gaming_activity_type: [sweep_or_calcutta]
    organisation_type: [charitable_organisation]
-   sweep_or_calcutta__no_payment_for_right_to_participate: True
+   fees_for_participation: False
    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True

@@ -123,8 +123,8 @@ class raising_funds_for_non_profit_purpose(Variable):
 
 class gaming_activity__has_charitable_nature(Variable):
     """
-    Is the gaming activity raising funds to support an object of a genuinely
-    public or charitable character?
+    Will the gaming activity be raising funds for a charitable purpose
+    or public benefit?
     """
     value_type = bool
     entity = Organisation

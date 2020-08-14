@@ -92,7 +92,7 @@ class value_of_individual_prize(Variable):
     definition_period = MONTH
 
 
-class no_fees_charged_for_conducting_game(Variable):
+class participation_fees(Variable):
     value_type = bool
     entity = Organisation
     label = """Will any entry fee or other fee be charged to participate?
@@ -101,7 +101,7 @@ class no_fees_charged_for_conducting_game(Variable):
     reference = CGR["2", "14"].json()
 
 
-class participation_is_free(Variable):
+class free_participation(Variable):
     value_type = bool
     entity = Organisation
     label = "Will the gaming activity be free to participate in?"
@@ -116,7 +116,7 @@ class total_prize_value_from_single_gaming_session(Variable):
     definition_period = MONTH
 
 
-class no_prize_consists_of_money(Variable):
+class prize_consists_of_money(Variable):
     value_type = bool
     entity = Organisation
     label = u"Do any of the prizes consist of money?"
