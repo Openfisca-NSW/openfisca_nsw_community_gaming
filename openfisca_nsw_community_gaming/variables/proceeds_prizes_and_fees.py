@@ -21,7 +21,7 @@ class gross_proceeds_from_gaming_activity(Variable):
 class proceeds_to_benefiting_organisation(Variable):
     value_type = int
     entity = Organisation
-    label = u"What proceeds would the benefiting organisation receive?"
+    label = u"How much of the estimated gross proceeds will the benefiting organisation receive?"
     definition_period = MONTH
 
 
@@ -36,14 +36,14 @@ class proceeds_used_for_meeting_cost_of_prizes(Variable):
 class total_expenses_for_conducting_gaming_activity(Variable):
     value_type = int
     entity = Organisation
-    label = u"What would be the total value of the expenses for conducting the gaming activity?"
+    label = u"What would be the total value of expenses to conduct this gaming activity?"
     definition_period = MONTH
 
 
 class net_proceeds_returned_to_participants(Variable):
     value_type = bool
     entity = Organisation
-    label = "Would the total amount invested by participants in a session of the gaming activity (after the cost of prizes and expenses of conducting the session are deducted), be returned to participants?"
+    label = "Would the total amount invested by participants be returned to participants? (after the cost of prizes and expenses in conducting the session are deducted)"
     definition_period = MONTH
     reference = CGR["2", "5"].json()
 
@@ -52,14 +52,14 @@ class money_payable_as_separate_prize(Variable):
     value_type = int
     entity = Organisation
     definition_period = MONTH
-    label = "What would be the amount of money payable as a separate prize? (in addition to other prizes of the gaming activity)"
+    label = "What would be the amount of money payable as a prize? (excluding the value of any other prizes in the same gaming activity)"
     reference = CGR["2", "4"].json()
 
 
 class total_prize_value_of_all_prizes_from_gaming_activity(Variable):
     value_type = int
     entity = Organisation
-    label = u"What is the total prize value of all the prizes in the gaming activity?"
+    label = u"What is the total prize value of prizes?"
     definition_period = MONTH
 
 
@@ -73,7 +73,7 @@ class highest_value_of_individual_prize_in_gaming_activity(Variable):
 class value_of_jackpot_prize(Variable):
     value_type = int
     entity = Organisation
-    label = u"What will be the highest value of the jackpot prize in the gaming activity?"
+    label = u"What will the highest value of the jackpot prize in the gaming activity be?"
     definition_period = MONTH
     reference = CGR["2", "5"].json()
 
@@ -92,17 +92,16 @@ class value_of_individual_prize(Variable):
     definition_period = MONTH
 
 
-class no_fees_charged_for_conducting_game(Variable):
+class participation_fees(Variable):
     value_type = bool
     entity = Organisation
-    label = """Will any entry or other fee be charged to participate
-    in the gaming activity? (other than purchasing goods or services
-    at a normal retail price)"""
+    label = """Will any entry fee or other fee be charged to participate?
+    (other than purchasing goods or services at a normal retail price)"""
     definition_period = MONTH
     reference = CGR["2", "14"].json()
 
 
-class participation_is_free(Variable):
+class free_participation(Variable):
     value_type = bool
     entity = Organisation
     label = "Will the gaming activity be free to participate in?"
@@ -113,11 +112,11 @@ class participation_is_free(Variable):
 class total_prize_value_from_single_gaming_session(Variable):
     value_type = int
     entity = Organisation
-    label = u"What will be the total prize value of all the prizes for 1 session of the gaming activity?"
+    label = u"What will be the total prize value of all prizes per session?"
     definition_period = MONTH
 
 
-class no_prize_consists_of_money(Variable):
+class prize_consists_of_money(Variable):
     value_type = bool
     entity = Organisation
     label = u"Do any of the prizes consist of money?"
@@ -128,5 +127,5 @@ class money_paid_as_prize(Variable):
     value_type = int
     entity = Organisation
     definition_period = MONTH
-    label = "What will be the money payable as a prize?"
+    label = "What is maximum amount payable as a prize?"
     reference = CGR["2", "9"].json()

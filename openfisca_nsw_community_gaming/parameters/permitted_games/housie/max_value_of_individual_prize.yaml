@@ -2,9 +2,9 @@ description: Maximum permitted value of an individual prize for the gaming activ
 reference: Community Gaming Regulation 2019
 housie_for_entertainment_purpose:
   values:
-    2019-09-01:
+    2020-07-01:
       value: 100
 housie_conducted_by_charity:
   values:
-    2019-09-01:
+    2020-07-01:
       value: 500

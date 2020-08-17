@@ -3,27 +3,27 @@ reference: Schedule 1(1) of the Community Gaming Regulation 2020
 one_year:
   fixed_component: # values in fee units
     values:
-      2020-07:
+      2020-07-01:
         value: 1.0
   processing_component:
     values:
-      2020-07:
+      2020-07-01:
         value: 3.0
 three_years:
   fixed_component: # values in fee units
     values:
-      2020-07:
+      2020-07-01:
         value: 3.0
   processing_component:
     values:
-      2020-07:
+      2020-07-01:
         value: 3.0
 five_years:
   fixed_component: # values in fee units
     values:
-      2020-07:
+      2020-07-01:
         value: 5.0
   processing_component:
     values:
-      2020-07:
+      2020-07-01:
         value: 3.0

@@ -32,8 +32,8 @@ class trade_promotion__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         return (
             organisation('trade_promotion__gaming_activity_type', period)
-            * organisation('no_fees_charged_for_conducting_game', period)
-            * organisation('trade_promotion__gaming_activity_has_business_consent',
+            * not_(organisation('participation_fees', period))
+            * organisation('business_consent',
                 period))
 
 
@@ -53,12 +53,11 @@ class trade_promotion__authority_required(Variable):
             > parameters(period).permitted_games.trade_promotion.max_total)
 
 
-class trade_promotion__gaming_activity_has_business_consent(Variable):
+class business_consent(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "Will written consent be obtained from a person who is authorised\
-    by the business benefiting from the gaming activity?"
+    label = "Will written consent be obtained from an authorised person?"
     reference = CGR["2", "14"].json()
 
 

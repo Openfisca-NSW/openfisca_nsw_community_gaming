@@ -1,6 +1,5 @@
 description: Minimum gross proceeds that are required to be paid to the benefiting organisation
-reference: >
-  Community Gaming Regulation 2019
+reference: Community Gaming Regulation 2019
 values:
-  2019-09-01:
+  2020-07-01:
     value: 0.3

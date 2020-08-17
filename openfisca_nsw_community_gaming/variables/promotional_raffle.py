@@ -40,7 +40,7 @@ class promotional_raffle__game_meets_criteria(Variable):
             and (organisation('total_prize_value_from_single_gaming_session', period)
                 <= parameters(period).permitted_games.promotional_raffle.
                 max_value_of_prize_per_session)
-            and organisation('no_prize_consists_of_money', period)
+            and organisation('prize_consists_of_money', period)
             and organisation('gaming_activity_on_authority_of_reg_club', period))
 
 
