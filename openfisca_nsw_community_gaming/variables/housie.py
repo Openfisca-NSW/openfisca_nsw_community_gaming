@@ -9,7 +9,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
-from openfisca_nsw_community_gaming.variables.organisation_type import OrganisationType as OT
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
 from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
@@ -48,13 +47,11 @@ class charity_housie__game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         gross_proceeds = organisation('gross_proceeds_from_gaming_activity', period)
         total_prize = organisation('total_prize_value_from_single_gaming_session', period)
-        is_charity = organisation('organisation_type', period) ==\
-            OT.charitable_organisation
         is_charity_housie = organisation('gaming_activity_type', period) ==\
             GT.charity_housie
 
         return (
-            is_charity and is_charity_housie
+            is_charity_housie and organisation('charitable_purpose', period)
             and (organisation('proceeds_to_benefiting_organisation', period)
                 >= parameters(period).permitted_games.housie.min_gross_proceeds_to_benefit_org
                 * gross_proceeds)

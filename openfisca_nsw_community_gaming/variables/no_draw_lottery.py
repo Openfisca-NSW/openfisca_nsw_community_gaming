@@ -8,7 +8,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
-from openfisca_nsw_community_gaming.variables.organisation_type import OrganisationType as OT
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
 from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
@@ -37,15 +36,11 @@ class no_draw_lottery__game_meets_criteria(Variable):
     reference = CGR["2", "7"].json()
 
     def formula(organisation, period, parameters):
-        is_charity = organisation('organisation_type', period) ==\
-            OT.charitable_organisation
-        is_non_profit = organisation('organisation_type', period) ==\
-            OT.non_profit_organisation
         is_no_draw_lottery = organisation('gaming_activity_type', period) ==\
             GT.no_draw_lottery
         return (
-            (is_charity or is_non_profit)
-            and is_no_draw_lottery
+            is_no_draw_lottery
+            and organisation('charitable_or_non_profit_purpose', period)
             and (organisation('total_prize_value_of_all_prizes_from_gaming_activity', period)
                 <= parameters(period).permitted_games.no_draw_lottery.
                 max_total_value_of_all_prizes)

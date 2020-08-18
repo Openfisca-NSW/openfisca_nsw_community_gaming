@@ -1,7 +1,7 @@
 - name: Organisation is conducting a charity housie that is permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type : [charity_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
@@ -12,10 +12,10 @@
     charity_housie: [permitted]
     charity_housie__game_meets_criteria: True
     charity_housie__authority_required: False
-- name: Organisation is not a charity, hence charity housie is not permitted
+- name: Organisation is not conducting gaming activity for charitable purpose, hence not permitted
   period: 2020-07
   input:
-    organisation_type: [registered_club]
+    charitable_purpose: False
     gaming_activity_type : [charity_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
@@ -29,7 +29,7 @@
 - name: Gaming activity is not a charity housie, hence not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type : [social_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
@@ -43,7 +43,7 @@
 - name: Proceeds to benefiting organisation are less than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type: [charity_housie]
     proceeds_to_benefiting_organisation: 499
     gross_proceeds_from_gaming_activity: 4000
@@ -57,7 +57,7 @@
 - name: Total expenses from gaming activity are greater than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type: [charity_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
@@ -71,7 +71,7 @@
 - name: Total prize value from single gaming session exceeds allowable limit (percentage) hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type : [charity_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
@@ -85,7 +85,7 @@
 - name: Total prize value from single gaming session exceeds allowable limit (absolute value) hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type : [charity_housie]
     proceeds_to_benefiting_organisation: 10900
     gross_proceeds_from_gaming_activity: 11000
@@ -99,7 +99,7 @@
 - name: Max number of tickets to a single player exceed allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
     gaming_activity_type: [charity_housie]
     proceeds_to_benefiting_organisation: 3900
     gross_proceeds_from_gaming_activity: 4000
