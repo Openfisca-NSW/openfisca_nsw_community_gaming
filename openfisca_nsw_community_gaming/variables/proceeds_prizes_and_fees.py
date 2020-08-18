@@ -129,3 +129,18 @@ class money_paid_as_prize(Variable):
     definition_period = MONTH
     label = "What is maximum amount payable as a prize?"
     reference = CGR["2", "9"].json()
+
+
+class charitable_purpose(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = '''Will the gaming activity be conducted to raise funds for a charity??'''
+
+
+class charitable_or_non_profit_purpose(Variable):
+    value_type = bool
+    entity = Organisation
+    definition_period = MONTH
+    label = '''Will the gaming activity be conducted to raise funds for a charity
+        or non-profit organisation?'''

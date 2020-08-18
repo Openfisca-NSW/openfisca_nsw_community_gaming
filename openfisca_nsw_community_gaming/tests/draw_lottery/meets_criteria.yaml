@@ -1,8 +1,8 @@
-- name: Organisation is a charity, is conducting a lottery that is permitted
+- name: Organisation is conducting draw lottery for charitable or non-profit purpose, is permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
     gaming_activity_type: [draw_lottery]
+    charitable_or_non_profit_purpose: True
     total_prize_value_of_all_prizes_from_gaming_activity: 30000
     proceeds_to_benefiting_organisation: 12000
     gross_proceeds_from_gaming_activity: 30000
@@ -10,23 +10,11 @@
     draw_lottery__game_meets_criteria: True
     draw_lottery__authority_required: False
     draw_lottery: [permitted]
-- name: Organisation is a not-for-profit, is conducting a permitted gaming activity
+- name: Organisation is not conducting draw lottery for charitable or non-profit purpose, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [non_profit_organisation]
     gaming_activity_type: [draw_lottery]
-    total_prize_value_of_all_prizes_from_gaming_activity: 30000
-    proceeds_to_benefiting_organisation: 12000
-    gross_proceeds_from_gaming_activity: 30000
-  output:
-    draw_lottery__game_meets_criteria: True
-    draw_lottery__authority_required: False
-    draw_lottery: [permitted]
-- name: Organisation is neither a charity nor a not-for-profit, hence gaming activity is not permitted
-  period: 2020-07
-  input:
-    organisation_type: [trade_union]
-    gaming_activity_type: [draw_lottery]
+    charitable_or_non_profit_purpose: False
     total_prize_value_of_all_prizes_from_gaming_activity: 30000
     proceeds_to_benefiting_organisation: 12000
     gross_proceeds_from_gaming_activity: 30000
@@ -37,7 +25,7 @@
 - name: Total value of prizes exceed allowable limit, hence gaming activity is not permitted without authority
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_or_non_profit_purpose: True
     gaming_activity_type: [draw_lottery]
     total_prize_value_of_all_prizes_from_gaming_activity: 35000
     proceeds_to_benefiting_organisation: 12000
@@ -45,10 +33,10 @@
   output:
     draw_lottery__game_meets_criteria: False
     draw_lottery: [not_permitted]
-- name: Organisation is a charity, but proceeds to benefiting organisation are less than allowable limit, hence gaming activity is not permitted
+- name: Proceeds to benefiting organisation are less than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_or_non_profit_purpose: True
     gaming_activity_type: [draw_lottery]
     total_prize_value_of_all_prizes_from_gaming_activity: 30000
     proceeds_to_benefiting_organisation: 9000
@@ -57,10 +45,10 @@
     draw_lottery__game_meets_criteria: False
     draw_lottery__authority_required: False
     draw_lottery: [not_permitted]
-- name: Organisation is a charity, but not conducting a draw lottery, hence gaming activity is not permitted
+- name: Draw lottery is not being conducted, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [charitable_organisation]
+    charitable_or_non_profit_purpose: True
     gaming_activity_type: [mini_numbers_lottery]
     total_prize_value_of_all_prizes_from_gaming_activity: 30000
     proceeds_to_benefiting_organisation: 28000

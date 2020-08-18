@@ -3,7 +3,6 @@ from openfisca_core.model_api import *
 # Import the Entities specifically defined for this tax and benefit system
 from openfisca_nsw_base.entities import *
 from openfisca_nsw_community_gaming.variables.return_type import ReturnType
-from openfisca_nsw_community_gaming.variables.organisation_type import OrganisationType as OT
 from openfisca_nsw_community_gaming.variables.gaming_activity_type import GamingActivityType as GT
 from openfisca_nsw_community_gaming.variables.community_gaming_regulation_reference import community_gaming_reg as CGR
 
@@ -32,17 +31,13 @@ class mini_numbers_lottery__game_meets_criteria(Variable):
     reference = CGR["2", "8"].json()
 
     def formula(organisation, period, parameters):
-        is_charity = organisation('organisation_type', period) ==\
-            OT.charitable_organisation
-        is_non_profit = organisation('organisation_type', period) ==\
-            OT.non_profit_organisation
         is_mini_numbers_lottery = organisation('gaming_activity_type', period) ==\
             GT.mini_numbers_lottery
         gross_proceeds = organisation('gross_proceeds_from_gaming_activity', period)
         single_session_prize = organisation('total_prize_value_from_single_gaming_session', period)
         return (
-            (is_charity or is_non_profit)
-            and is_mini_numbers_lottery
+            is_mini_numbers_lottery
+            and organisation('charitable_or_non_profit_purpose', period)
             and ((organisation('proceeds_to_benefiting_organisation', period)
                 >= parameters(period).permitted_games.mini_numbers_lottery.
                 min_gross_proceeds_percent_to_benefit_org) * gross_proceeds)

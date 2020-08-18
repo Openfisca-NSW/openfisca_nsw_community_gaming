@@ -5,19 +5,19 @@
     gross_proceeds_from_gaming_activity: 10000
     proceeds_to_benefiting_organisation: 4000
     total_prize_value_from_single_gaming_session: 5000
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
   output:
     other_gaming_activity__game_meets_criteria: True
     other_gaming_activity__authority_required: False
     other_gaming_activity: [permitted]
-- name: Organisation is not conducting other gaming activity for charitable purposes, hence not permitted
+- name: Organisation is not conducting other gaming activity, hence not permitted
   period: 2020-07
   input:
     gaming_activity_type: [trade_promotion]
     gross_proceeds_from_gaming_activity: 10000
     proceeds_to_benefiting_organisation: 4000
     total_prize_value_from_single_gaming_session: 5000
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
@@ -29,7 +29,7 @@
     gross_proceeds_from_gaming_activity: 10000
     proceeds_to_benefiting_organisation: 3900
     total_prize_value_from_single_gaming_session: 5000
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
@@ -41,19 +41,19 @@
     gross_proceeds_from_gaming_activity: 100000
     proceeds_to_benefiting_organisation: 40000
     total_prize_value_from_single_gaming_session: 10000
-    organisation_type: [charitable_organisation]
+    charitable_purpose: True
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
     other_gaming_activity: [not_permitted]
-- name: Gaming activity is not conducted on or behalf of a charity, hence not permitted
+- name: Gaming activity is not being conducted for charitable purpose, hence not permitted
   period: 2020-07
   input:
     gaming_activity_type: [other_gaming_activity]
     gross_proceeds_from_gaming_activity: 10000
     proceeds_to_benefiting_organisation: 40000
     total_prize_value_from_single_gaming_session: 5000
-    organisation_type: [trade_union]
+    charitable_purpose: False
   output:
     other_gaming_activity__game_meets_criteria: False
     other_gaming_activity__authority_required: False
