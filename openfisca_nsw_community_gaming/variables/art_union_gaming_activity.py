@@ -35,15 +35,12 @@ class art_union_gaming_activity__game_meets_criteria(Variable):
 
     def formula(organisation, period, parameters):
 
-        OT = organisation('organisation_type', period).possible_values
-        is_art_union = organisation('organisation_type', period) ==\
-            OT.art_union
         GT = organisation('gaming_activity_type', period).possible_values
         is_gaming_activity_type = organisation('gaming_activity_type', period) ==\
             GT.art_union_gaming_activity
 
         return (
-            is_art_union and is_gaming_activity_type
+            is_gaming_activity_type
             and (organisation(
                  'total_prize_value_of_all_prizes_from_gaming_activity',
                  period) > parameters(
@@ -62,8 +59,7 @@ class art_union_gaming_activity__game_meets_criteria(Variable):
             and (organisation(
                  'money_payable_as_separate_prize', period)
                  <= parameters(period).permitted_games.
-                 art_union_gaming_activity.max_money_for_separate_prize)
-            and organisation('organisation_type', period)) == OT.art_union
+                 art_union_gaming_activity.max_money_for_separate_prize))
 
 
 class art_union_gaming_activity__authority_required(Variable):

@@ -1,7 +1,6 @@
 - name: Gross proceeds to benefiting organisation are less than 30%, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [art_union]
     gaming_activity_type: [art_union_gaming_activity]
     proceeds_to_benefiting_organisation: 10000
     gross_proceeds_from_gaming_activity: 40000
@@ -18,7 +17,6 @@
   period: 2020-07
   input:
     gaming_activity_type: [art_union_gaming_activity]
-    organisation_type: [art_union]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -34,23 +32,6 @@
   period: 2020-07
   input:
     gaming_activity_type: [mini_numbers_lottery]
-    organisation_type: [art_union]
-    proceeds_to_benefiting_organisation: 20000
-    gross_proceeds_from_gaming_activity: 40000
-    money_payable_as_separate_prize: 20000
-    total_prize_value_of_all_prizes_from_gaming_activity: 40000
-    raising_funds_for_charitable_purpose: True
-    raising_funds_for_non_profit_purpose: False
-    gaming_activity__has_charitable_nature: False
-  output:
-    art_union_gaming_activity: [not_permitted]
-    art_union_gaming_activity__game_meets_criteria: False
-    art_union_gaming_activity__authority_required: True
-- name: Organisation is not an art union, hence gaming activity is not permitted
-  period: 2020-07
-  input:
-    gaming_activity_type: [art_union_gaming_activity]
-    organisation_type: [political_party]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -65,7 +46,6 @@
 - name: Organisation not conducting an art union gaming activity, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [art_union]
     gaming_activity_type: [mini_numbers_lottery]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
@@ -81,7 +61,6 @@
 - name: Total prize value is lesser than allowable limit, hence gaming activity is not permitted
   period: 2020-07
   input:
-    organisation_type: [art_union]
     gaming_activity_type: [art_union_gaming_activity]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
@@ -114,7 +93,6 @@
   period: 2020-07
   input:
     gaming_activity_type: [art_union_gaming_activity]
-    organisation_type: [art_union]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -130,7 +108,6 @@
   period: 2020-07
   input:
     gaming_activity_type: [art_union_gaming_activity]
-    organisation_type: [art_union]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
@@ -146,7 +123,6 @@
   period: 2020-07
   input:
     gaming_activity_type: [art_union_gaming_activity]
-    organisation_type: [art_union]
     proceeds_to_benefiting_organisation: 20000
     gross_proceeds_from_gaming_activity: 40000
     money_payable_as_separate_prize: 20000
