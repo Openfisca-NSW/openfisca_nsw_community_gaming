@@ -57,7 +57,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
    is_approved_fund_raising_organisation: True
    reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: True
    amount_agreed_in_writing_beforehand: True
   output:
    sweep_or_calcutta: [permitted]
@@ -70,7 +69,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 30001
    is_approved_fund_raising_organisation: True
    reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: True
    amount_agreed_in_writing_beforehand: True
   output:
    sweep_or_calcutta: [permitted_with_authority]
@@ -83,7 +81,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
    is_approved_fund_raising_organisation: True
    reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: True
    amount_agreed_in_writing_beforehand: True
   output:
    sweep_or_calcutta: [not_permitted]
@@ -96,7 +93,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
    is_approved_fund_raising_organisation: False
    reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: True
    amount_agreed_in_writing_beforehand: True
   output:
    sweep_or_calcutta: [not_permitted]
@@ -109,20 +105,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
    is_approved_fund_raising_organisation: True
    reasonable_amount_to_benefiting_organisation: False
-   amount_paid_will_be_at_least_what_agreed_to: True
-   amount_agreed_in_writing_beforehand: True
-  output:
-   sweep_or_calcutta: [not_permitted]
-- name: Sweep/Calcutta - not social game, amount paid not what was agreed to, not permitted
-  period: 2020-07
-  input:
-   gaming_activity_type: [sweep_or_calcutta]
-   sweep_or_calcutta__is_social_game: False
-   fees_for_participation: False
-   total_prize_value_of_all_prizes_from_gaming_activity: 25000
-   is_approved_fund_raising_organisation: True
-   reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: False
    amount_agreed_in_writing_beforehand: True
   output:
    sweep_or_calcutta: [not_permitted]
@@ -135,7 +117,6 @@
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
    is_approved_fund_raising_organisation: True
    reasonable_amount_to_benefiting_organisation: True
-   amount_paid_will_be_at_least_what_agreed_to: True
    amount_agreed_in_writing_beforehand: False
   output:
    sweep_or_calcutta: [not_permitted]

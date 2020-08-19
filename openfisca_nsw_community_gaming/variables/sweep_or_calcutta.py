@@ -46,7 +46,6 @@ class sweep_or_calcutta__fund_raising_game_meets_criteria(Variable):
             not_(organisation('sweep_or_calcutta__is_social_game', period))
             and organisation('is_approved_fund_raising_organisation', period)
             and organisation('reasonable_amount_to_benefiting_organisation', period)
-            and organisation('amount_paid_will_be_at_least_what_agreed_to', period)
             and organisation('amount_agreed_in_writing_beforehand', period))
 
 
