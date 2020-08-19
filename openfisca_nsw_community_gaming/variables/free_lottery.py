@@ -38,7 +38,7 @@ class free_lottery__game_meets_criteria(Variable):
             <= parameters(period).permitted_games.free_lottery.
                 max_total_prize_value)
             and organisation('free_participation', period)
-            and organisation('prize_consists_of_money', period))
+            and not_(organisation('prize_consists_of_money', period)))
 
 
 class free_lottery__authority_required(Variable):

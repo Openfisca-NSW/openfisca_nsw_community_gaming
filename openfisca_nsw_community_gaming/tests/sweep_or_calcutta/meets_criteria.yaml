@@ -1,84 +1,141 @@
-- name: Organisation is an approved fund raising org, sweep or calcutta is permitted
+- name: Sweep/Calcutta - social game, meets criteria, no authority required
   period: 2020-07
   input:
    gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
+   sweep_or_calcutta__is_social_game: True
    fees_for_participation: False
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   all_gross_proceeds_are_distributed_to_participants_based_on_stake_held: True
   output:
    sweep_or_calcutta: [permitted]
-- name: Gaming activity is neither sweep nor calcutta hence not permitted
-  period: 2020-07
-  input:
-    gaming_activity_type: [social_housie]
-    organisation_type: [charitable_organisation]
-    fees_for_participation: False
-    sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-    sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-    sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
-    total_prize_value_of_all_prizes_from_gaming_activity: 25000
-  output:
-    sweep_or_calcutta: [not_permitted]
-- name: Payment has been taken for right to participate, hence sweep or calcutta is not permitted
+- name: Sweep/Calcutta - social game, meets criteria, authority required
   period: 2020-07
   input:
    gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
-   fees_for_participation: True
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
-   total_prize_value_of_all_prizes_from_gaming_activity: 25000
-  output:
-   sweep_or_calcutta: [not_permitted]
-- name: Reasonable amount will not be paid to benefitting organisation hence not permitted
-  period: 2020-07
-  input:
-   gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
+   sweep_or_calcutta__is_social_game: True
    fees_for_participation: False
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: False
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
-   total_prize_value_of_all_prizes_from_gaming_activity: 25000
-  output:
-     sweep_or_calcutta: [not_permitted]
-- name: Amount paid will not be what was agreed to, hence not permitted
-  period: 2020-07
-  input:
-   gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
-   fees_for_participation: False
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: False
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
-   total_prize_value_of_all_prizes_from_gaming_activity: 25000
-  output:
-   sweep_or_calcutta: [not_permitted]
-- name: Amount not agreed in writing before hand, hence not permitted
-  period: 2020-07
-  input:
-   gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
-   fees_for_participation: False
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: False
-   total_prize_value_of_all_prizes_from_gaming_activity: 25000
-  output:
-   sweep_or_calcutta: [not_permitted]
-- name: Total prize value exceeds threshold, permitted but authority is required
-  period: 2020-07
-  input:
-   gaming_activity_type: [sweep_or_calcutta]
-   organisation_type: [charitable_organisation]
-   fees_for_participation: False
-   sweep_or_calcutta__reasonable_amount_to_benefiting_org: True
-   sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to: True
-   sweep_or_calcutta__amount_agreed_in_writing_beforehand: True
-   total_prize_value_of_all_prizes_from_gaming_activity: 32000
+   total_prize_value_of_all_prizes_from_gaming_activity: 30001
+   all_gross_proceeds_are_distributed_to_participants_based_on_stake_held: True
   output:
    sweep_or_calcutta: [permitted_with_authority]
+- name: Sweep/Calcutta is social game, but has fees for participation, hence not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: True
+   fees_for_participation: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   all_gross_proceeds_are_distributed_to_participants_based_on_stake_held: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Game is not sweep or calcutta hence not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [club_bingo]
+   sweep_or_calcutta__is_social_game: True
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   all_gross_proceeds_are_distributed_to_participants_based_on_stake_held: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - social game, gross proceeds not distributed, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: True
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   all_gross_proceeds_are_distributed_to_participants_based_on_stake_held: False
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - not social game, meets criteria, no authority required
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [permitted]
+- name: Sweep/Calcutta - not social game, meets criteria, authority required
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 30001
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [permitted_with_authority]
+- name: Sweep/Calcutta - not social game, fees for participation, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: True
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - not social game, not conducted by approved fundraising org, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: False
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - not social game, no reasonable amount to benefit. org, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: False
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - not social game, amount paid not what was agreed to, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: False
+   amount_agreed_in_writing_beforehand: True
+  output:
+   sweep_or_calcutta: [not_permitted]
+- name: Sweep/Calcutta - not social game, amount not agreed in writing beforehand, not permitted
+  period: 2020-07
+  input:
+   gaming_activity_type: [sweep_or_calcutta]
+   sweep_or_calcutta__is_social_game: False
+   fees_for_participation: False
+   total_prize_value_of_all_prizes_from_gaming_activity: 25000
+   is_approved_fund_raising_organisation: True
+   reasonable_amount_to_benefiting_organisation: True
+   amount_paid_will_be_at_least_what_agreed_to: True
+   amount_agreed_in_writing_beforehand: False
+  output:
+   sweep_or_calcutta: [not_permitted]

@@ -14,6 +14,7 @@ class OrganisationType(Enum):
     racing_club = u'Racing club'
     greyhound_racing_club = u'Greyhound racing club'
     harness_racing_club = u'Harness racing club'
+    other = u'Other'
 
 
 class organisation_type(Variable):

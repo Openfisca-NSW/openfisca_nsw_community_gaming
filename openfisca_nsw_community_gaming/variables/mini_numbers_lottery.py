@@ -39,8 +39,8 @@ class mini_numbers_lottery__game_meets_criteria(Variable):
             is_mini_numbers_lottery
             and organisation('charitable_or_non_profit_purpose', period)
             and ((organisation('proceeds_to_benefiting_organisation', period)
-                >= parameters(period).permitted_games.mini_numbers_lottery.
-                min_gross_proceeds_percent_to_benefit_org) * gross_proceeds)
+                >= (parameters(period).permitted_games.mini_numbers_lottery.
+                min_gross_proceeds_percent_to_benefit_org) * gross_proceeds))
             and (single_session_prize
                 <= parameters(period).permitted_games.mini_numbers_lottery.
                 max_value_of_prize_per_session)
