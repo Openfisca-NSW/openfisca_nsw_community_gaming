@@ -5,7 +5,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: True
   output:
@@ -19,7 +19,7 @@
     gaming_activity_on_authority_of_reg_club: False
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: True
   output:
@@ -33,7 +33,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 71
     value_of_bonus_prize: 60
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: True
   output:
@@ -47,7 +47,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 71
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: True
   output:
@@ -61,7 +61,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    prize_consists_of_money: False
+    prize_consists_of_money: True
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: True
   output:
@@ -75,7 +75,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: False
     venue_is_registered_club: True
   output:
@@ -89,7 +89,7 @@
     gaming_activity_on_authority_of_reg_club: True
     total_prize_value_from_single_gaming_session: 60
     value_of_bonus_prize: 60
-    prize_consists_of_money: True
+    prize_consists_of_money: False
     gaming_activity_organised_for_patronage: True
     venue_is_registered_club: False
   output:

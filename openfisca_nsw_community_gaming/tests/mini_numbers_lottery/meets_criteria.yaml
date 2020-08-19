@@ -40,7 +40,7 @@
     charitable_or_non_profit_purpose: True
     gaming_activity_type: [mini_numbers_lottery]
     gross_proceeds_from_gaming_activity: 10000
-    proceeds_to_benefiting_organisation: 2000
+    proceeds_to_benefiting_organisation: 3999
     total_prize_value_from_single_gaming_session: 3000
   output:
     mini_numbers_lottery__game_meets_criteria: False
@@ -53,7 +53,7 @@
     gaming_activity_type: [mini_numbers_lottery]
     gross_proceeds_from_gaming_activity: 25000
     proceeds_to_benefiting_organisation: 22000
-    total_prize_value_from_single_gaming_session: 21000
+    total_prize_value_from_single_gaming_session: 20001
   output:
     mini_numbers_lottery__game_meets_criteria: False
     mini_numbers_lottery__authority_required: False
@@ -65,7 +65,7 @@
     gaming_activity_type: [mini_numbers_lottery]
     gross_proceeds_from_gaming_activity: 10000
     proceeds_to_benefiting_organisation: 5000
-    total_prize_value_from_single_gaming_session: 3000
+    total_prize_value_from_single_gaming_session: 4999
   output:
     mini_numbers_lottery__game_meets_criteria: False
     mini_numbers_lottery__authority_required: False

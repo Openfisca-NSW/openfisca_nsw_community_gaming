@@ -8,7 +8,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: True
     promotional_raffle__authority_required: False
@@ -23,7 +23,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -38,7 +38,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -53,7 +53,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -68,7 +68,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -83,7 +83,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 8900
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -98,7 +98,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5100
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False
@@ -113,7 +113,7 @@
     proceeds_used_for_meeting_cost_of_prizes: 9000
     gross_proceeds_from_gaming_activity: 10000
     total_prize_value_from_single_gaming_session: 5000
-    prize_consists_of_money: False
+    prize_consists_of_money: True
   output:
     promotional_raffle__game_meets_criteria: False
     promotional_raffle__authority_required: False

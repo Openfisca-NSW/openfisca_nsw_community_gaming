@@ -4,16 +4,16 @@
     gaming_activity_type: [free_lottery]
     total_prize_value_of_all_prizes_from_gaming_activity: 25000
     free_participation: True
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     free_lottery: [permitted]
 - name: Organisation is conducting a free lottery that is above threshold of total prizes, hence gaming activity is not permitted
   period: 2020-07
   input:
     gaming_activity_type: [free_lottery]
-    total_prize_value_of_all_prizes_from_gaming_activity: 32000
+    total_prize_value_of_all_prizes_from_gaming_activity: 30001
     free_participation: True
-    prize_consists_of_money: True
+    prize_consists_of_money: False
   output:
     free_lottery: [not_permitted]
 - name: Organisation is conducting a free lottery and participation is not free, hence gaming activity is not permitted
@@ -22,6 +22,15 @@
     gaming_activity_type: [free_lottery]
     total_prize_value_of_all_prizes_from_gaming_activity: 25000
     free_participation: False
+    prize_consists_of_money: False
+  output:
+    free_lottery: [not_permitted]
+- name: Prize consists of money, hence gaming activity is not permitted.
+  period: 2020-07
+  input:
+    gaming_activity_type: [free_lottery]
+    total_prize_value_of_all_prizes_from_gaming_activity: 25000
+    free_participation: True
     prize_consists_of_money: True
   output:
     free_lottery: [not_permitted]

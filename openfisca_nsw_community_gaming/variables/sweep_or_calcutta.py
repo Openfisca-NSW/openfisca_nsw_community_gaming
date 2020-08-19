@@ -43,10 +43,10 @@ class sweep_or_calcutta__fund_raising_game_meets_criteria(Variable):
 
     def formula(organisation, period, parameters):
         return(
-            organisation('is_approved_fund_raising_organisation', period)
-            and organisation('sweep_or_calcutta__reasonable_amount_to_benefiting_org', period)
-            and organisation('sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to', period)
-            and organisation('sweep_or_calcutta__amount_agreed_in_writing_beforehand', period))
+            not_(organisation('sweep_or_calcutta__is_social_game', period))
+            and organisation('is_approved_fund_raising_organisation', period)
+            and organisation('reasonable_amount_to_benefiting_organisation', period)
+            and organisation('amount_agreed_in_writing_beforehand', period))
 
 
 class sweep_or_calcutta__game_meets_criteria(Variable):
@@ -90,7 +90,7 @@ class sweep_or_calcutta__social_game_meets_criteria(Variable):
     def formula(organisation, period, parameters):
         return(
             organisation('sweep_or_calcutta__is_social_game', period)
-            and organisation('sweep_or_calcutta__all_gross_proceeds_are_distributed_to_participants_based_on_stake_held', period)
+            and organisation('all_gross_proceeds_are_distributed_to_participants_based_on_stake_held', period)
             )
 
 
@@ -102,7 +102,7 @@ class sweep_or_calcutta__is_social_game(Variable):
     reference = CGR["2", "13"].json()
 
 
-class sweep_or_calcutta__all_gross_proceeds_are_distributed_to_participants_based_on_stake_held(Variable):
+class all_gross_proceeds_are_distributed_to_participants_based_on_stake_held(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
@@ -110,7 +110,7 @@ class sweep_or_calcutta__all_gross_proceeds_are_distributed_to_participants_base
     reference = CGR["2", "13"].json()
 
 
-class sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to(Variable):
+class amount_paid_will_be_at_least_what_agreed_to(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
@@ -118,18 +118,12 @@ class sweep_or_calcutta__amount_paid_will_be_at_least_what_agreed_to(Variable):
     reference = CGR["2", "13"].json()
 
 
-class sweep_or_calcutta__amount_agreed_in_writing_beforehand(Variable):
+class amount_agreed_in_writing_beforehand(Variable):
     value_type = bool
     entity = Organisation
     definition_period = ETERNITY
-    label = "Do you have a written agreement stipulating the minimum amount paid to the charitable organisation?"
-
-
-class sweep_or_calcutta__gaming_activity_for_social_purpose(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = "Is the gaming activity being conducted for social purposes?"
+    label = "Do you have a written agreement stipulating the minimum amount\
+    payable to the approved fund raising organisation?"
     reference = CGR["2", "13"].json()
 
 
@@ -143,34 +137,11 @@ class fees_for_participation(Variable):
     reference = CGR["2", "13"].json()
 
 
-class distribution_of_gross_proceeds(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = """If the gaming activity is not conducted wholly or partly for a
-        charity, non-profit, political party, trade union, registered club, racing
-        club, greyhound racing club or harness racing club, will the gross proceeds
-        be distributed to holders of the rights in respect of the succesful
-        participants?"""
-    reference = CGR["2", "13"].json()
-
-
-class sweep_or_calcutta__reasonable_amount_to_benefiting_org(Variable):
+class reasonable_amount_to_benefiting_organisation(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
     label = """Will a resonable amount of the gross proceeds be paid to the
             benefiting organisation (which will be agreed in writing before
             the gaming activity is conducted)?"""
-    reference = CGR["2", "13"].json()
-
-
-class excess_proceeds_to_benefiting_org(Variable):
-    value_type = bool
-    entity = Organisation
-    definition_period = MONTH
-    label = """Will the amount of proceeds remaining after payment of prize money
-        and the costs and expenses of the gaming activity be paid for the purposes
-        of the organisation, even if that amount exceeds the agreed amount of the
-        gross proceeds?"""
     reference = CGR["2", "13"].json()

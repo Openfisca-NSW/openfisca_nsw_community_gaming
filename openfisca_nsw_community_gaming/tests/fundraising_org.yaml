@@ -46,9 +46,15 @@
     organisation_type: [harness_racing_club]
   output:
     is_approved_fund_raising_organisation: True
-- name: Organisation is not an approved fund raising organisation
+- name: Organisation is an art union, not an approved fund raising organisation
   period: 2020-07
   input:
     organisation_type: [art_union]
+  output:
+    is_approved_fund_raising_organisation: False
+- name: Organisation type is 'other', not an approved fund raising organisation
+  period: 2020-07
+  input:
+    organisation_type: [other]
   output:
     is_approved_fund_raising_organisation: False
