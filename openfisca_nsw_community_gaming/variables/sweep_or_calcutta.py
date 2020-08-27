@@ -141,7 +141,7 @@ class reasonable_amount_to_benefiting_organisation(Variable):
     value_type = bool
     entity = Organisation
     definition_period = MONTH
-    label = """Will a resonable amount of the gross proceeds be paid to the
+    label = """Will a reasonable amount of the gross proceeds be paid to the
             benefiting organisation (which will be agreed in writing before
             the gaming activity is conducted)?"""
     reference = CGR["2", "13"].json()
